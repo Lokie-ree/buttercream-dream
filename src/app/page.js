@@ -1,9 +1,9 @@
-import Image from "next/image";
+import Hero from "./components/ui/Hero";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24 overflow-x-clip">
-      Home
+    <main className="flex min-h-screen items-center justify-center bg-base-100 overflow-x-clip">
+      <Hero />
     </main>
   );
 }

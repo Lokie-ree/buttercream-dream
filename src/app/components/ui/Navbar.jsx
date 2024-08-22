@@ -51,8 +51,9 @@ const Navbar = () => {
             <Image
               src="/assets/images/logo_64x64.png"
               alt="Business Logo & Contact"
-              height={28}
-              width={28}
+              width={64}
+              height={64}
+              layout="responsive"
             />
           </Link>
         </button>
