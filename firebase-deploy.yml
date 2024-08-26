@@ -1,31 +1,30 @@
 name: Deploy to Firebase Hosting
 
-# Trigger the workflow on push events to the main branch
 on:
   push:
     branches:
-      - main # Change this if you're deploying from a different branch
+      - main # Change this to the branch you are deploying from
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout the code
+      - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "16" # Ensure this matches the Node.js version your project requires
+          node-version: "16"
 
       - name: Install dependencies
         run: npm install
 
-      - name: Build the Next.js project
+      - name: Build project
         run: npm run build
 
-      - name: Export the Next.js project
+      - name: Export Next.js site
         run: npm run export
 
       - name: Deploy to Firebase Hosting
