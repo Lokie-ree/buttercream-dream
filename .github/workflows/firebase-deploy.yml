@@ -3,28 +3,28 @@ name: Deploy to Firebase Hosting
 on:
   push:
     branches:
-      - main # Change this to the branch you are deploying from
+      - main # Or the branch you want to deploy from
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout the code
         uses: actions/checkout@v3
 
-      - name: Install Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version: "18.17.0" # Set the Node.js version to 18.17.0 or higher
 
       - name: Install dependencies
         run: npm install
 
-      - name: Build project
+      - name: Build the Next.js project
         run: npm run build
 
-      - name: Export Next.js site
+      - name: Export the Next.js project
         run: npm run export
 
       - name: Deploy to Firebase Hosting
