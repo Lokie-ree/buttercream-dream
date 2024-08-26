@@ -27,9 +27,6 @@ jobs:
       - name: Build the Next.js project
         run: npm run build
 
-      - name: Export the Next.js project
-        run: npm run export
-
       - name: Deploy to Firebase Hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
