@@ -1,11 +1,7 @@
 import React from "react";
 
 const Contact = () => {
-  return (
-    <main classname="flex min-h-screen flex-col items-center justify-between p-24 overflow-x-clip">
-      Contact
-    </main>
-  );
+  return <main className="min-h-screen text-3xl font-bold">Contact</main>;
 };
 
 export default Contact;

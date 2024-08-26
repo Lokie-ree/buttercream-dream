@@ -1,11 +1,7 @@
 import React from "react";
 
 const About = () => {
-  return (
-    <main classname="flex min-h-screen flex-col items-center justify-between p-24 overflow-x-clip">
-      About
-    </main>
-  );
+  return <main className="min-h-screen text-3xl font-bold">About</main>;
 };
 
 export default About;
