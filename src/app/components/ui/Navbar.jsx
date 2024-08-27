@@ -13,7 +13,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-primary">
+    <div className="navbar bg-primary text-base-100">
       <div className="flex-1">
         <Link href="/" className="btn btn-ghost text-md md:text-2xl">
           <Image
@@ -52,12 +52,12 @@ const Navbar = () => {
             tabIndex={0}
             className="card card-compact dropdown-content bg-base-100 z-[1] mt-3 w-52 shadow"
           >
-            <div className="card-body">
+            <div className="card-body bg-neutral text-primary rounded-xl">
               <span className="text-lg font-bold">8 Items</span>
-              <span className="text-info">Subtotal: $999</span>
+              <span className="font-bold">Subtotal: $999</span>
               <div className="card-actions">
                 <Link href="/cart">
-                  <button className="btn btn-primary btn-block">
+                  <button className="btn btn-accent btn-block text-neutral">
                     View cart
                   </button>
                 </Link>
@@ -69,7 +69,7 @@ const Navbar = () => {
           <div
             tabIndex={0}
             role="button"
-            className="btn btn-ghost btn-circle avatar"
+            className="btn btn-ghost btn-square avatar"
           >
             <div className="w-10 rounded-full">
               <div className="rounded-full">
@@ -79,7 +79,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-neutral text-primary font-bold rounded-box z-[1] mt-3 w-22 p-2 shadow"
           >
             <li>
               <Link href="/" className="justify-between">

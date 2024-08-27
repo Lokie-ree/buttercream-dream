@@ -5,8 +5,8 @@ import { FaFacebookSquare, FaInstagramSquare, FaTiktok } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="footer flex flex-col items-center bg-primary text-neutral-content p-3">
-      <aside className="grid-flow-col items-center">
+    <footer className="footer flex flex-col items-center bg-primary text-base-100 p-2">
+      <aside className="grid-flow-col items-center mt-2">
         <Image
           className="mask mask-squircle rounded-lg shadow-2xl"
           src="/assets/images/brand_logo_32x32.jpg"
@@ -17,7 +17,7 @@ const Footer = () => {
         />
         <p>© {new Date().getFullYear()} - All right reserved</p>
       </aside>
-      <nav className="grid-flow-col gap-4 md:justify-self-end text-base-100">
+      <nav className="grid-flow-col gap-4 md:justify-self-end text-base-100 mb-2">
         <Link href="https://www.facebook.com/BritneyLovely87">
           <FaFacebookSquare size={24} />
         </Link>
