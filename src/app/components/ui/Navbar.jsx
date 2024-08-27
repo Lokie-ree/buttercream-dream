@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import React, { useState } from "react";
+import Image from "next/image";
 import { IoMenuOutline } from "react-icons/io5";
 
 const Navbar = () => {
@@ -12,9 +13,17 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-primary">
       <div className="flex-1">
-        <Link href="/" className="btn btn-ghost text-xl">
+        <Link href="/" className="btn btn-ghost text-md md:text-2xl">
+          <Image
+            className="mask mask-squircle rounded-lg shadow-2xl"
+            src="/assets/images/brand_logo_32x32.jpg"
+            alt="Business Logo & Contact"
+            width={32}
+            height={32}
+            style={{ objectFit: "contain" }}
+          />
           I Dream of Buttercream
         </Link>
       </div>

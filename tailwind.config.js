@@ -15,7 +15,17 @@ module.exports = {
     },
   },
   daisyui: {
-    themes: ["valentine"],
+    themes: [
+      {
+        myTheme: {
+          primary: "#FFB6C1",
+          secondary: "#FEE29E",
+          neutral: "#FFF5E1",
+          accent: "#FF7373",
+          action: "",
+        },
+      },
+    ],
   },
   plugins: [require("daisyui")],
 };
