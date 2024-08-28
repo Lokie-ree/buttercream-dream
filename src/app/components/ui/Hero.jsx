@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { IoIosPhonePortrait } from "react-icons/io";
-import { GiCakeSlice } from "react-icons/gi";
+import { FaBirthdayCake } from "react-icons/fa";
 
 const Hero = () => {
   return (
@@ -33,12 +33,12 @@ const Hero = () => {
             </p>
             <div className="flex flex-row items-center gap-3">
               <Link href="/cakes" className="btn btn-accent text-base-100">
-                <GiCakeSlice className="text-xl" />
-                See My Cakes
+                <FaBirthdayCake className="text-xl" />
+                Cakes
               </Link>
               <Link href="/contact" className="btn btn-accent text-base-100">
                 <IoIosPhonePortrait className="text-xl" />
-                Contact Me
+                Contact
               </Link>
             </div>
           </div>
