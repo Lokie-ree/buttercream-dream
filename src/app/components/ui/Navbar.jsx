@@ -4,6 +4,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import Image from "next/image";
 import { IoMenuOutline } from "react-icons/io5";
+import { IoCartOutline } from "react-icons/io5";
 
 const Navbar = () => {
   return (
