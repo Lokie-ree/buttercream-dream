@@ -2,8 +2,8 @@ import React from "react";
 
 const Cart = () => {
   return (
-    <main className="flex items-center justify-center bg-base-100 overflow-x-clip">
-      <div className="text-3xl font-bold flex flex-col">Cart</div>
+    <main className="flex items-center min-h-screen justify-center bg-base-100 overflow-x-clip">
+      Cart
     </main>
   );
 };

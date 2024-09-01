@@ -13,7 +13,7 @@ const Footer = () => {
       <nav className="flex justify-center gap-4 md:mt-0 md:justify-end">
         <Link
           href="https://www.facebook.com/BritneyLovely87"
-          aria-lable="Facebook"
+          aria-label="Facebook"
         >
           <FaFacebookSquare
             size={24}
@@ -29,7 +29,10 @@ const Footer = () => {
             className="hover:text-secondary focus:outline-none"
           />
         </Link>
-        <Link href="https://www.tiktok.com/@britneylovely1987?_t=8pCXGjMEEjm&_r=1">
+        <Link
+          href="https://www.tiktok.com/@britneylovely1987?_t=8pCXGjMEEjm&_r=1"
+          aria-label="Tiktok"
+        >
           <FaTiktok
             size={24}
             className="hover:text-secondary focus:outline-none"

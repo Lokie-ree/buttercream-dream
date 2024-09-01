@@ -123,11 +123,6 @@ const Navbar = () => {
                   About
                 </Link>
               </li>
-              <li>
-                <Link href="/contact" className="justify-between">
-                  Contact
-                </Link>
-              </li>
             </ul>
           </div>
         </div>

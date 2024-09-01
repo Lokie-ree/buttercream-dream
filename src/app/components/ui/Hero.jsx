@@ -42,7 +42,7 @@ const Hero = () => {
                 Cakes
               </Link>
               <Link
-                href="/contact"
+                href="/about"
                 className="btn btn-accent text-base-100 hover:text-accent hover:bg-neutral focus:outline-none"
                 aria-label="Contact Us"
               >

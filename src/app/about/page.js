@@ -2,10 +2,9 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { FaFacebookSquare, FaInstagramSquare, FaTiktok } from "react-icons/fa";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "/firebase";
+import SocialButtons from "../components/SocialButtons";
 
 const About = () => {
   const [formData, setFormData] = useState({
@@ -46,9 +45,9 @@ const About = () => {
   };
 
   return (
-    <main className="min-h-screen bg-base-200 p-6 flex flex-col items-center">
-      <div className="max-w-4xl w-full bg-base-100 rounded-xl shadow-xl p-8 flex flex-col lg:flex-row">
-        <div className="flex flex-shrink-0 md:items-center">
+    <main className="min-h-screen bg-base-100 p-6 flex flex-col items-center">
+      <div className="max-w-4xl w-full bg-base-100 rounded-xl shadow-xl p-6 lg:p-8 flex flex-col lg:flex-row lg:items-center lg:space-x-8">
+        <div className="flex-shrink-0 lg:w-1/3">
           <Image
             src="/assets/images/blovely_photo.jpg"
             alt="Client Photo"
@@ -58,53 +57,33 @@ const About = () => {
             style={{ objectFit: "cover" }}
           />
         </div>
-        <div className="lg:ml-8 mt-6 lg:mt-0">
-          <h1 className="text-4xl text-center font-bold text-accent mb-4">
+        <div className="lg:w-2/3 mt-6 lg:mt-0">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-accent mb-4">
             About Me
           </h1>
-          <p className="text-lg text-primary mb-4">
-            Hello! I'm Britney Lovely, the face behind "I Dream of Buttercream."
-            I've always had a passion for baking and have turned that passion
-            into a business. Every cake I create is made with the finest
-            ingredients and a lot of love. Whether it's a birthday, wedding, or
-            any special occasion, I'm here to make your celebration sweeter.
-          </p>
-          <p className="text-lg text-primary mb-4">
-            Baking is not just my profession but my way of bringing joy to
-            people's lives. Each creation is unique and crafted to perfection,
-            reflecting the joy and celebration in your life.
-          </p>
-          <div className="mt-6 flex justify-center space-x-4">
-            <Link
-              href="https://www.facebook.com/BritneyLovely87"
-              aria-lable="Facebook"
-            >
-              <FaFacebookSquare
-                size={32}
-                className="text-accent hover:text-neutral focus:outline-none"
-              />
-            </Link>
-            <Link
-              href="https://www.instagram.com/buttercream_genie/?fbclid=IwY2xjawE4z3VleHRuA2FlbQIxMAABHaMqg0Aa6cLJWAL-TsVq5aaO4yjWeaGCzQvdPNAKx4QqLIi0k_Nl5d5u3A_aem_SHQOald2SOmhKsoILeNCFw"
-              aria-label="Instagram"
-            >
-              <FaInstagramSquare
-                size={32}
-                className="text-accent hover:text-neutral focus:outline-none"
-              />
-            </Link>
-            <Link href="https://www.tiktok.com/@britneylovely1987?_t=8pCXGjMEEjm&_r=1">
-              <FaTiktok
-                size={32}
-                className="text-accent hover:text-neutral focus:outline-none"
-              />
-            </Link>
+          <div className="text-md lg:text-lg text-primary space-y-4">
+            <p>
+              Hello! I'm Britney Lovely, the face behind "I Dream of
+              Buttercream." I've always had a passion for baking and have turned
+              that passion into a business. Every cake I create is made with the
+              finest ingredients and a lot of love. Whether it's a birthday,
+              wedding, or any special occasion, I'm here to make your
+              celebration sweeter.
+            </p>
+            <p>
+              Baking is not just my profession but my way of bringing joy to
+              people's lives. Each creation is unique and crafted to perfection,
+              reflecting the joy and celebration in your life.
+            </p>
+          </div>
+          <div className="mt-6">
+            <SocialButtons />
           </div>
         </div>
       </div>
 
       {/* Contact Form Section */}
-      <div className="max-w-md w-full bg-base-100 rounded-lg shadow-xl p-8 mt-12">
+      <div className="max-w-4xl w-full bg-base-100 rounded-xl shadow-xl p-6 lg:p-8 mt-12">
         <h2 className="text-3xl font-bold text-accent mb-6">Get in Touch</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
@@ -117,7 +96,7 @@ const About = () => {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className="input input-bordered input-accent w-full max-w-sm"
+              className="input input-bordered input-accent w-full"
               placeholder="Your Name"
               required
             />
@@ -132,7 +111,7 @@ const About = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="input input-bordered input-accent w-full max-w-sm"
+              className="input input-bordered input-accent w-full"
               placeholder="Your Email"
               required
             />
@@ -147,7 +126,7 @@ const About = () => {
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              className="input input-bordered input-accent w-full max-w-sm"
+              className="input input-bordered input-accent w-full"
               placeholder="Your Phone Number"
               required
             />
@@ -164,9 +143,9 @@ const About = () => {
               name="message"
               value={formData.message}
               onChange={handleChange}
-              className="textarea textarea-bordered textarea-accent w-full max-w-sm"
+              className="textarea textarea-bordered textarea-accent w-full"
               placeholder="Your Message"
-              rows="5"
+              rows="3"
               required
             />
           </div>
