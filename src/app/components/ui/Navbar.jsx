@@ -1,12 +1,24 @@
 "use client";
 
 import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import { IoMenuOutline } from "react-icons/io5";
-import { IoCartOutline } from "react-icons/io5";
+import { signOut } from "firebase/auth";
+import { auth } from "@/app/lib/firebase/firebase";
+import useAuth from "@/app/hooks/useAuth";
 
 const Navbar = () => {
+  const user = useAuth();
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.error("Error signing out: ", error);
+    }
+  };
+
   return (
     <div className="navbar bg-primary text-base-100">
       <div className="flex items-center justify-between w-full">
@@ -35,15 +47,26 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Mobile view with centered text */}
-        <div className="flex-1 text-center md:hidden">
-          <Link href="/" className="btn btn-ghost text-md">
-            I Dream of Buttercream
-          </Link>
-        </div>
-
         {/* Cart and Menu on the right */}
         <div className="flex-none flex items-center">
+          {/* Conditional rendering based on auth status */}
+          {user ? (
+            <div className="flex items-center gap-4">
+              <p className="text-sm">Welcome, {user.email}</p>
+              <button
+                className="btn btn-outline btn-secondary"
+                onClick={handleLogout}
+              >
+                Logout
+              </button>
+            </div>
+          ) : (
+            <Link href="/auth" className="btn btn-secondary">
+              Login
+            </Link>
+          )}
+
+          {/* Cart */}
           <div className="dropdown dropdown-end">
             <div
               tabIndex={0}
@@ -87,6 +110,8 @@ const Navbar = () => {
               </div>
             </div>
           </div>
+
+          {/* Dropdown Menu */}
           <div className="dropdown dropdown-end">
             <div
               tabIndex={0}

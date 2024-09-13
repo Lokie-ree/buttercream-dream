@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { collection, addDoc } from "firebase/firestore";
-import { db } from "/firebase";
 import SocialButtons from "../components/SocialButtons";
 
 const About = () => {
