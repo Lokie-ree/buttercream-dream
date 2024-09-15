@@ -30,6 +30,9 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content bg-neutral text-primary rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
             <li>
+              <Link href="/">Home</Link>
+            </li>
+            <li>
               <Link href="/cakes">Cakes</Link>
             </li>
             <li>
@@ -49,6 +52,9 @@ const Navbar = () => {
       </div>
       <div className="navbar-center hidden lg:flex lg:gap-5">
         <ul className="menu menu-horizontal px-4 text-3xl text-base-100">
+          <li>
+            <Link href="/">Home</Link>
+          </li>
           <li className="hover:text-neutral">
             <Link href="/cakes">Cakes</Link>
           </li>
@@ -89,7 +95,7 @@ const Navbar = () => {
           </div>
         ) : (
           <Link
-            href="/auth"
+            href="/auth/signin"
             className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-accent hover:text-accent hover:bg-neutral"
           >
             Sign in
