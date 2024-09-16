@@ -11,16 +11,26 @@ import Link from "next/link";
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [message, setMessage] = useState("");
+
   const router = useRouter();
 
   const handleSignIn = async (e) => {
     e.preventDefault();
-    setLoading(true);
+    setIsLoading(true);
+    setMessage("");
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      setMessage(`Logged in as: ${userCredential.user.email}`);
       router.push("/");
     } catch (error) {
+      setMessage(`Error: ${error.message}`);
+      setIsLoading(false);
       console.error("Sign in error:", error.message);
     }
   };
@@ -68,9 +78,14 @@ const SignIn = () => {
               />
             </label>
             <button className="btn btn-accent text-base-100" type="submit">
-              {loading ? <FaSpinner className="animate-spin" /> : "Sign in"}
+              {isLoading ? (
+                <FaSpinner className="animate-spin" />
+              ) : (
+                "Sign in with Email"
+              )}
             </button>
           </form>
+          {message && <p>{message}</p>}
           <div className="divider divider-primary">Or</div>
           <button
             className="btn btn-accent text-base-100"

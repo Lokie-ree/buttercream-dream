@@ -6,13 +6,16 @@ import { IoMenuOutline } from "react-icons/io5";
 import { signOut } from "firebase/auth";
 import { auth } from "@/app/lib/firebase/firebase";
 import useAuth from "@/app/hooks/useAuth";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
   const user = useAuth();
+  const router = useRouter();
 
   const handleLogout = async () => {
     try {
       await signOut(auth);
+      router.push("/auth/signin");
     } catch (error) {
       console.error("Error signing out: ", error);
     }
@@ -89,7 +92,9 @@ const Navbar = () => {
                 <Link href="">Orders</Link>
               </li>
               <li>
-                <button onClick={handleLogout}>Logout</button>
+                <button onClick={handleLogout} classname="btn btn-accent">
+                  Logout
+                </button>
               </li>
             </ul>
           </div>

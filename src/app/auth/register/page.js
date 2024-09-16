@@ -11,17 +11,26 @@ import Link from "next/link";
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [message, setMessage] = useState("");
 
   const router = useRouter();
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    setLoading(true);
+    setIsLoading(true);
+    setMessage("");
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      setMessage(`User registered: ${userCredential.user.email}`);
       router.push("/");
     } catch (error) {
+      setMessage(`Error: ${error.message}`);
+      setIsLoading(false);
       console.error("Sign in error:", error.message);
     }
   };
@@ -69,13 +78,14 @@ const Register = () => {
               />
             </label>
             <button className="btn btn-accent text-base-100" type="submit">
-              {loading ? (
+              {isLoading ? (
                 <FaSpinner className="animate-spin" />
               ) : (
                 "Register New Account"
               )}
             </button>
           </form>
+          {message && <p>{message}</p>}
           <div className="divider divider-primary">Or</div>
           <button
             className="btn btn-accent text-base-100"
