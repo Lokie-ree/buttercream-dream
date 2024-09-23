@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { collection, addDoc } from "firebase/firestore";
-import SocialButtons from "../components/SocialButtons";
+import SocialButtons from "../components/ui/SocialButtons";
 
 const About = () => {
   const [formData, setFormData] = useState({

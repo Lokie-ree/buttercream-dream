@@ -1,7 +1,4 @@
-// schemas/index.js
-import cupcakes from './cupcakes';
-import cakes from './cakes';
-import cookies from './cookies';
-import pies from './pies';
+import product from "./product";
+import size from "./size";
 
-export const schemaTypes = [cupcakes, cakes, cookies, pies]
+export const schemaTypes = [product, size];

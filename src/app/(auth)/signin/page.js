@@ -1,14 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
-import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { auth, googleProvider } from "@/app/lib/firebase/firebase";
 import { useRouter } from "next/navigation";
 import { IoMdMail } from "react-icons/io";
 import { FaSpinner, FaGoogle, FaKey } from "react-icons/fa";
 import Link from "next/link";
 
-const Register = () => {
+const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -16,17 +16,17 @@ const Register = () => {
 
   const router = useRouter();
 
-  const handleRegister = async (e) => {
+  const handleSignIn = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     setMessage("");
     try {
-      const userCredential = await createUserWithEmailAndPassword(
+      const userCredential = await signInWithEmailAndPassword(
         auth,
         email,
         password
       );
-      setMessage(`User registered: ${userCredential.user.email}`);
+      setMessage(`Logged in as: ${userCredential.user.email}`);
       router.push("/");
     } catch (error) {
       setMessage(`Error: ${error.message}`);
@@ -48,12 +48,12 @@ const Register = () => {
     <div className="flex flex-col items-center justify-center min-h-screen bg-base-200">
       <div className="card w-96 bg-base-100 shadow-xl text-primary border border-accent">
         <div className="card-body flex flex-col items-center">
-          <h2 className="card-title text-center text-2xl md:text-3xl mb-3">
-            Create Your Account
+          <h2 className="card-title text-center text-2xl md:text-3xl mb-2">
+            Sign in
           </h2>
           <form
             className="flex flex-col items-center space-y-4"
-            onSubmit={handleRegister}
+            onSubmit={handleSignIn}
           >
             <label className="input input-bordered flex items-center gap-2">
               <IoMdMail />
@@ -81,7 +81,7 @@ const Register = () => {
               {isLoading ? (
                 <FaSpinner className="animate-spin" />
               ) : (
-                "Register New Account"
+                "Sign in with Email"
               )}
             </button>
           </form>
@@ -93,12 +93,12 @@ const Register = () => {
           >
             {" "}
             <FaGoogle />
-            Register with Google
+            Sign in with Google
           </button>
           <p className="flex w-full text-sm gap-1 justify-center mt-2">
-            Already have an account?{" "}
-            <Link href="/auth/signin" className="font-bold hover:underline">
-              Sign In Here
+            Don't have an account yet?
+            <Link href="/register" className="font-semibold hover:underline">
+              Register Here
             </Link>
           </p>
         </div>
@@ -107,4 +107,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default SignIn;

@@ -1,6 +1,6 @@
 import React from "react";
 import cakes from "../lib/cakes";
-import CakeCard from "./CakeCard";
+import CakeCard from "./ProductCard";
 
 const FeaturedCakesCarousel = () => {
   return (

@@ -4,7 +4,7 @@ import { FaFacebookSquare, FaInstagramSquare, FaTiktok } from "react-icons/fa";
 
 const SocialButtons = () => {
   return (
-    <div className="mt-6 flex space-x-4">
+    <div className="flex space-x-4 mt-4 justify-center">
       <Link
         href="https://www.facebook.com/BritneyLovely87"
         aria-lable="Facebook"
