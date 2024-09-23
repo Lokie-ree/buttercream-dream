@@ -3,7 +3,10 @@ const nextConfig = {
   images: {
     domains: ["cdn.sanity.io"],
   },
-  transpilePackages: ['next-sanity'],
+  webpack: (config) => {
+    config.externals = [...(config.externals || []), "canvas", "jsdom"];
+    return config;
+  },
 };
 
 module.exports = nextConfig;

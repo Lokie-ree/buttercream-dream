@@ -1,19 +1,65 @@
-/**
- * This route is responsible for the built-in authoring environment using Sanity Studio.
- * All routes under your studio path is handled by this file using Next.js' catch-all routes:
- * https://nextjs.org/docs/routing/dynamic-routes#catch-all-routes
- *
- * You can learn more about the next-sanity package here:
- * https://github.com/sanity-io/next-sanity
- */
+import { NextStudio } from "next-sanity/studio";
+import { metadata, viewport } from "next-sanity/studio";
+import config from "sanity.config";
+import { notFound } from "next/navigation";
 
-import { NextStudio } from 'next-sanity/studio'
-import config from '../../../../sanity.config'
+export { metadata, viewport };
 
-export const dynamic = 'force-static'
+export const dynamic = "force-dynamic";
 
-export { metadata, viewport } from 'next-sanity/studio'
+export default function DynamicToolPage({ params }) {
+  const { tool } = params;
 
-export default function StudioPage() {
-  return <NextStudio config={config} />
+  // If no tool is specified, render the Sanity Studio
+  if (!tool || tool.length === 0) {
+    return <NextStudio config={config} />;
+  }
+
+  // Handle different tool routes
+  switch (tool[0]) {
+    case "products":
+      return <ProductsPage />;
+    case "categories":
+      return <CategoriesPage />;
+    case "orders":
+      return <OrdersPage />;
+    default:
+      notFound();
+  }
+}
+
+function ProductsPage() {
+  return (
+    <div className="container mx-auto p-4">
+      <h1 className="text-2xl font-bold mb-4">Products</h1>
+      {/* Add your products listing component here */}
+    </div>
+  );
+}
+
+function CategoriesPage() {
+  return (
+    <div className="container mx-auto p-4">
+      <h1 className="text-2xl font-bold mb-4">Categories</h1>
+      {/* Add your categories listing component here */}
+    </div>
+  );
+}
+
+function OrdersPage() {
+  return (
+    <div className="container mx-auto p-4">
+      <h1 className="text-2xl font-bold mb-4">Orders</h1>
+      {/* Add your orders listing component here */}
+    </div>
+  );
+}
+
+export async function generateStaticParams() {
+  return [
+    { tool: [] },
+    { tool: ["products"] },
+    { tool: ["categories"] },
+    { tool: ["orders"] },
+  ];
 }

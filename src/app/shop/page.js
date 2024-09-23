@@ -3,7 +3,7 @@ import { urlFor } from "../../sanity/imageUrlBuilder";
 import { fetchProducts } from "../../sanity/fetchProducts";
 import ProductCard from "../components/ProductCard";
 
-const ProductsPage = async () => {
+export default async function ProductsPage() {
   const products = await fetchProducts();
 
   return (
@@ -14,17 +14,17 @@ const ProductsPage = async () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {products.map((product) => (
           <ProductCard
-            key={product.title}
+            key={product._id}
             title={product.title}
             description={product.description}
             price={product.price}
-            imageSrc={urlFor(product.imageUrl).url()}
+            imageSrc={
+              product.image ? urlFor(product.image).url() : "/placeholder.png"
+            }
             imageAlt={product.title}
           />
         ))}
       </div>
     </main>
   );
-};
-
-export default ProductsPage;
+}

@@ -1,19 +1,19 @@
-import { createClient } from "next-sanity";
+import { client } from "library/sanity.client";
 
-const client = createClient({
-  projectId: "9twmhni2",
-  dataset: "production",
-});
-export const fetchProducts = async () => {
-  const query = `*[_type == "product"] {
-  title,
-  description,
-  price,
-  "imageUrl": image.asset->url,
-  sizes[]->{
-  title
+export async function fetchProducts() {
+  const query = `*[_type == "product"]{
+    _id,
+    title,
+    description,
+    price,
+    "image": image.asset->url
+  }`;
+
+  try {
+    const products = await client.fetch(query);
+    return products;
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    return [];
   }
-}`;
-
-  return await client.fetch(query);
-};
+}
