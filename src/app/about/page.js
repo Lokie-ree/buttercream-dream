@@ -44,7 +44,10 @@ const About = () => {
   };
 
   return (
-    <main className="min-h-screen bg-base-100 p-6 flex flex-col items-center">
+    <main className="min-h-screen bg-base-100 p-8 flex flex-col items-center">
+      <h1 className="text-2xl md:text-3xl lg:text-4xl md:mb-4 md:p-4 font-bold text-accent">
+        About Me
+      </h1>
       <div className="max-w-4xl w-full bg-base-100 rounded-xl shadow-xl p-6 lg:p-8 flex flex-col lg:flex-row lg:items-center lg:space-x-8">
         <div className="flex-shrink-0 lg:w-1/3">
           <Image
@@ -52,14 +55,11 @@ const About = () => {
             alt="Client Photo"
             width={300}
             height={300}
-            className="rounded-box shadow-lg"
+            className="rounded-box shadow-lg w-full"
             style={{ objectFit: "cover" }}
           />
         </div>
         <div className="lg:w-2/3 mt-6 lg:mt-0">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-accent mb-4">
-            About Me
-          </h1>
           <div className="text-md lg:text-lg text-primary space-y-4">
             <p>
               Hello! I'm Britney Lovely, the face behind "I Dream of
@@ -83,7 +83,7 @@ const About = () => {
 
       {/* Contact Form Section */}
       <div className="max-w-4xl w-full bg-base-100 rounded-xl shadow-xl p-6 lg:p-8 mt-12">
-        <h2 className="text-3xl font-bold text-accent mb-6">Get in Touch</h2>
+        <h2 className="text-2xl font-bold text-accent mb-6">Get in Touch</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label htmlFor="name" className="block text-lg text-primary mb-2">

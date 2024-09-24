@@ -34,16 +34,16 @@ const Hero = () => {
             </p>
             <div className="flex flex-row items-center gap-3">
               <Link
-                href="/cakes"
+                href="/shop"
                 className="btn btn-accent text-base-100 hover:text-accent hover:bg-neutral focus:outline-none"
                 aria-label="View Cakes"
               >
                 <FaBirthdayCake className="text-xl" />
-                Cakes
+                Shop
               </Link>
               <Link
                 href="/about"
-                className="btn btn-accent text-base-100 hover:text-accent hover:bg-neutral focus:outline-none"
+                className="btn btn-ghost text-primary hover:bg-neutral focus:outline-none"
                 aria-label="Contact Us"
               >
                 <IoIosPhonePortrait className="text-xl" />

@@ -1,6 +1,28 @@
-nodemailer.com
+** About Page **
+  > Figure out how to utilize Google Forms instead of implementing a custom form
 
-google forms
+** Product Card **
+  > When user clicks on "Add to Cart", the button should turn to "+/-" (similar to Amazon)
 
-overlay showing over the image (price on top) hover effect
+** Product Detail Page **
+  > Title, Image, Description, Price, Nutritional Info, Cart button
+
+** Cart Page **
+  > Subtotal listing at top
+  > Proceed to checkout button
+  > Card component (image, title, description, price)
+  > Buttons (delete, add) similar to Amazon
+
+** Checkout Page **
+  > Total price of items
+  > Shipping & Handling
+  > Estimated tax to be collected
+  > Order total
+  > Payment info
+  > Shipping info
+  > Button (place order)
+
+** Navbar **
+  > Add Logo
+  > Remove home link
 
