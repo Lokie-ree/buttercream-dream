@@ -1,7 +1,7 @@
 import React from "react";
 import { urlFor } from "../../sanity/imageUrlBuilder";
 import { fetchProducts } from "../../sanity/fetchProducts";
-import ProductCard from "../components/ProductCard";
+import ProductCard from "../../components/ProductCard";
 
 export default async function ProductsPage() {
   const products = await fetchProducts();

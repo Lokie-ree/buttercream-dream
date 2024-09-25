@@ -1,9 +1,10 @@
-import { NextStudio } from "next-sanity/studio";
-import { metadata, viewport } from "next-sanity/studio";
-import config from "sanity.config";
+import nextDynamic from "next/dynamic";
 import { notFound } from "next/navigation";
 
-export { metadata, viewport };
+// Dynamically import the client component with SSR disabled
+const StudioPage = nextDynamic(() => import("../../studio/[...index]/page"), {
+  ssr: false,
+});
 
 export const dynamic = "force-dynamic";
 
@@ -12,7 +13,7 @@ export default function DynamicToolPage({ params }) {
 
   // If no tool is specified, render the Sanity Studio
   if (!tool || tool.length === 0) {
-    return <NextStudio config={config} />;
+    return <StudioPage />;
   }
 
   // Handle different tool routes

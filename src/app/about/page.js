@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { collection, addDoc } from "firebase/firestore";
-import SocialButtons from "../components/ui/SocialButtons";
+import SocialButtons from "../../components/SocialButtons";
 
 const About = () => {
   const [formData, setFormData] = useState({
@@ -51,7 +51,7 @@ const About = () => {
       <div className="max-w-4xl w-full bg-base-100 rounded-xl shadow-xl p-6 lg:p-8 flex flex-col lg:flex-row lg:items-center lg:space-x-8">
         <div className="flex-shrink-0 lg:w-1/3">
           <Image
-            src="/assets/images/blovely_photo2.jpg"
+            src="/assets/blovely_photo2.jpg"
             alt="Client Photo"
             width={300}
             height={300}

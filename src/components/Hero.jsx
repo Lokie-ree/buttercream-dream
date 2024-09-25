@@ -53,8 +53,8 @@ const Hero = () => {
           </div>
           <div className="w-full lg:w-3/4 relative flex justify-center pb-6">
             <Image
-              className="mask mask-squircle rounded-lg shadow-2xl hover:animate-pulse"
-              src="/assets/images/brand_logo_512x512.jpg"
+              className="mask mask-squircle rounded-lg shadow-2xl"
+              src="/assets/brand_logo_512x512.jpg"
               alt="Artistic logo of the business"
               width={512}
               height={512}

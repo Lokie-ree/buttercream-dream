@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import CartButton from "./CartButton";
-import SocialButtons from "../SocialButtons";
+import CartButton from "../../CartButton";
+import SocialButtons from "../../SocialButtons";
 
 const MobileMenu = ({ isOpen }) => {
   return (

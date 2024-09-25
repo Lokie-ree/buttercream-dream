@@ -5,7 +5,7 @@ import React from "react";
 import { IoMenuOutline } from "react-icons/io5";
 import { signOut } from "firebase/auth";
 import { auth } from "@/app/lib/firebase/firebase";
-import useAuth from "@/app/hooks/useAuth";
+import useAuth from "@/hooks/useAuth";
 import { useRouter } from "next/navigation";
 
 const Navbar = () => {
@@ -24,6 +24,9 @@ const Navbar = () => {
   return (
     <div className="navbar bg-primary text-base-100">
       <div className="navbar-start">
+        <Link href="/" passHref={true} className="text-2xl font-bold">
+          I Dream of Buttercream
+        </Link>
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <IoMenuOutline className="hover:text-neutral" size={30} />
@@ -32,9 +35,6 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-neutral text-primary rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
-            <li>
-              <Link href="/">Home</Link>
-            </li>
             <li>
               <Link href="/shop">Shop</Link>
             </li>
@@ -46,18 +46,9 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <Link
-          href="/"
-          className="btn btn-ghost text-lg md:text-2xl hover:text-neutral"
-        >
-          I Dream of Buttercream
-        </Link>
       </div>
       <div className="navbar-center hidden lg:flex lg:gap-5">
         <ul className="menu menu-horizontal px-4 text-3xl text-base-100">
-          <li>
-            <Link href="/">Home</Link>
-          </li>
           <li className="hover:text-neutral">
             <Link href="/shop">Shop</Link>
           </li>

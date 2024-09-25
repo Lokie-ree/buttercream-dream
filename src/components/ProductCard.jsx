@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
-
-import AddToCartButton from "./ui/AddToCartButton";
+import AddToCartButton from "./AddToCartButton";
 
 const ProductCard = ({ title, description, price, imageSrc, imageAlt }) => {
   return (
