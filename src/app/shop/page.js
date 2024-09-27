@@ -1,27 +1,23 @@
 import React from "react";
-import { urlFor } from "../../sanity/imageUrlBuilder";
-import { fetchProducts } from "../../sanity/fetchProducts";
 import ProductCard from "../../components/ProductCard";
+import { items } from "utils/items";
 
-export default async function ProductsPage() {
-  const products = await fetchProducts();
-
+export default function ProductsPage() {
   return (
     <main className="min-h-screen bg-base-100 p-8 md:p-12 flex flex-col items-center m-auto">
       <h1 className="text-2xl md:text-4xl font-bold text-accent mb-6 md:mb-10">
         My Delicious Sweets
       </h1>
-      <div className="max-w-screen grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {products.map((product) => (
+      <div className="max-w-screen grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl-grid-cols-5 gap-8">
+        {items.map((item) => (
           <ProductCard
-            key={product._id}
-            title={product.title}
-            description={product.description}
-            price={product.price}
-            imageSrc={
-              product.image ? urlFor(product.image).url() : "/placeholder.png"
-            }
-            imageAlt={product.title}
+            key={item.id || "No Product ID Available"}
+            name={item.name || "No Title Available"}
+            description={item.description || "No description Available"}
+            price={item.price || "No Price Available"}
+            imageSrc={item.imageUrl || "Image Not Available"}
+            imageAlt={item.name}
+            isInStock={item.inStock}
           />
         ))}
       </div>

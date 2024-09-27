@@ -1,15 +1,7 @@
 import React from "react";
-import Image from "next/image";
-import AddToCartButton from "../../components/AddToCartButton";
+import AddToCartButton from "@/components/buttons/AddToCartButton";
 
-const ProductDetailPage = ({
-  title,
-  description,
-  imageSrc,
-  imageAlt,
-  price,
-  size,
-}) => {
+const ProductDetails = () => {
   return (
     <div className="container mx-auto p-6 md:p-12 min-h-screen bg-base-100 flex flex-col items-center">
       <h1 className="text-2xl text-center md:text-4xl font-bold text-accent mb-6 md:mb-10">
@@ -18,11 +10,9 @@ const ProductDetailPage = ({
       <div className="flex flex-col md:flex-row">
         {/* Product Image */}
         <div className="md:w-1/2 mb-4 md:mb-0">
-          <Image
-            src={imageSrc || "/placeholder.png"}
-            alt={imageAlt || "Product image"}
-            width={400}
-            height={300}
+          <img
+            src="/placeholder.png"
+            alt="Product image"
             className="w-full h-auto rounded-xl shadow-xl"
           />
         </div>
@@ -45,4 +35,4 @@ const ProductDetailPage = ({
   );
 };
 
-export default ProductDetailPage;
+export default ProductDetails;

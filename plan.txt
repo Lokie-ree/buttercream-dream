@@ -1,0 +1,87 @@
+**** To Do ****
+  Decide on CMS
+  Admin Dashboard?
+
+** Components Needed **
+  Banner
+  Product Card
+    mobile
+    desktop
+  Buttons
+    add to cart (clicked => Quantity Counter : add to cart)
+    remove (no items in cart => disabled)
+    clear cart (no items => disabled)
+    checkout (auth => checkout : login to checkout)
+    continue shopping (clicked => Product Listing Page)
+  Quantity Counter
+  Option Selector
+  Cart Info Table
+
+** Layout **
+  Navbar
+  Main Section (consistent across all pages)
+  Footer
+
+** Home Page **
+  Hero/CTA
+
+** About Page **
+  Remove custom form
+  Use Google Form?
+
+** Product Listing Page **
+  Banner?
+  Product Cards
+    image, title, price
+    route -> Product Details Page
+    Remove (AddToCart Btn)
+
+** Product Details Page **
+  Desktop (horizontal)
+    image
+    title
+    price
+    description
+    nutritional info
+    Option Selector
+    Quantity Selector
+    Add to Cart button
+  Mobile (vertical)
+
+** Shopping Cart Page **
+  Desktop (horizontal)
+    Product
+      Small Product Card
+        image
+        title
+        selected options
+        Remove Button
+      Price
+      Quantity Selector
+      Total
+    Subtotal Section
+      subtotal
+      taxes/shipping
+      Checkout Button (stripe => payment intent, new order)
+      Continue Shopping Button
+  Mobile (vertical)
+
+** Checkout Page **
+  Total price of items
+  Shipping & Handling
+  Estimated tax to be collected
+  Order total
+  Payment info
+  Shipping info
+  Button (place order)
+
+** Navbar **
+  Desktop
+    left (logo)
+    middle (NavLinks)
+    right (Hamburger Button => move sign in/out button inside)
+  Mobile
+    left (logo)
+    right (Hamburger Button => move sign in/out button inside)
+
+

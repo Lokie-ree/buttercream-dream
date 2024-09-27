@@ -1,9 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import { collection, addDoc } from "firebase/firestore";
-import SocialButtons from "../../components/SocialButtons";
+import SocialButtons from "../../components/buttons/SocialButtons";
 
 const About = () => {
   const [formData, setFormData] = useState({
@@ -50,13 +49,10 @@ const About = () => {
       </h1>
       <div className="max-w-4xl w-full bg-base-100 rounded-xl shadow-xl p-6 lg:p-8 flex flex-col lg:flex-row lg:items-center lg:space-x-8">
         <div className="flex-shrink-0 lg:w-1/3">
-          <Image
+          <img
             src="/assets/blovely_photo2.jpg"
             alt="Client Photo"
-            width={300}
-            height={300}
             className="rounded-box shadow-lg w-full"
-            style={{ objectFit: "cover" }}
           />
         </div>
         <div className="lg:w-2/3 mt-6 lg:mt-0">

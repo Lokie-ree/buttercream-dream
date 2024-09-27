@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { IoIosPhonePortrait } from "react-icons/io";
 import { FaBirthdayCake } from "react-icons/fa";
 
@@ -52,13 +51,10 @@ const Hero = () => {
             </div>
           </div>
           <div className="w-full lg:w-3/4 relative flex justify-center pb-6">
-            <Image
+            <img
               className="mask mask-squircle rounded-lg shadow-2xl"
               src="/assets/brand_logo_512x512.jpg"
               alt="Artistic logo of the business"
-              width={512}
-              height={512}
-              style={{ objectFit: "contain" }}
             />
           </div>
         </div>
