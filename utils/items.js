@@ -1,3 +1,5 @@
+const placeholder = "../assets/brand_logo_240x240.jpg";
+
 export const items = [
   {
     id: 1,
@@ -13,7 +15,7 @@ export const items = [
     name: "Vanilla Dream",
     description: "Light and fluffy vanilla cake with buttercream frosting.",
     price: 24.99,
-    imageUrl: "https://images.unsplash.com/photo-1606813909771-54f32f58a5ae",
+    imageUrl: placeholder,
     inStock: true,
   },
   {
@@ -30,7 +32,7 @@ export const items = [
     description:
       "Zesty lemon cake with raspberry filling and cream cheese frosting.",
     price: 32.99,
-    imageUrl: "https://images.unsplash.com/photo-1505575967455-40e256f73376",
+    imageUrl: placeholder,
     inStock: true,
   },
   {
@@ -38,7 +40,7 @@ export const items = [
     name: "Carrot Cake",
     description: "Moist carrot cake with walnuts and cream cheese frosting.",
     price: 28.99,
-    imageUrl: "https://images.unsplash.com/photo-1623092339731-0e5d32d78f83",
+    imageUrl: placeholder,
     inStock: true,
   },
   {
@@ -47,7 +49,7 @@ export const items = [
     description:
       "Layers of sponge cake with fresh strawberries and whipped cream.",
     price: 31.99,
-    imageUrl: "https://images.unsplash.com/photo-1587496679749-e2e6d5f4dc59",
+    imageUrl: placeholder,
     inStock: true,
   },
   {
@@ -55,7 +57,7 @@ export const items = [
     name: "Coconut Paradise",
     description: "Coconut cake with layers of creamy coconut frosting.",
     price: 26.99,
-    imageUrl: "https://images.unsplash.com/photo-1605477644084-27f9c5d3e8f9",
+    imageUrl: placeholder,
     inStock: false,
   },
   {
@@ -63,7 +65,7 @@ export const items = [
     name: "Almond Cake",
     description: "Delicate almond-flavored cake with toasted almonds on top.",
     price: 33.99,
-    imageUrl: "https://images.unsplash.com/photo-1589212859249-1f91f71a75d6",
+    imageUrl: placeholder,
     inStock: true,
   },
   {
@@ -71,7 +73,7 @@ export const items = [
     name: "Coffee Walnut Cake",
     description: "Rich coffee cake with crunchy walnuts and a coffee glaze.",
     price: 29.99,
-    imageUrl: "https://images.unsplash.com/photo-1602009454289-0c2c7ab75e4e",
+    imageUrl: placeholder,
     inStock: true,
   },
   {
@@ -79,7 +81,7 @@ export const items = [
     name: "Black Forest",
     description: "Chocolate cake with cherries and whipped cream.",
     price: 34.99,
-    imageUrl: "https://images.unsplash.com/photo-1588167056545-139409f59a1c",
+    imageUrl: placeholder,
     inStock: false,
   },
   {
@@ -87,7 +89,7 @@ export const items = [
     name: "Tiramisu",
     description: "Italian classic cake with coffee, mascarpone, and cocoa.",
     price: 35.99,
-    imageUrl: "https://images.unsplash.com/photo-1543352636-54fd56c595af",
+    imageUrl: placeholder,
     inStock: true,
   },
   {
@@ -112,7 +114,7 @@ export const items = [
     description:
       "Chocolate and peanut butter layers with a smooth peanut butter frosting.",
     price: 29.99,
-    imageUrl: "https://images.unsplash.com/photo-1546901852-de5b1a28ea40",
+    imageUrl: placeholder,
     inStock: true,
   },
   {
@@ -129,7 +131,7 @@ export const items = [
     name: "Banana Nut Cake",
     description: "Moist banana cake with walnuts and cream cheese frosting.",
     price: 26.99,
-    imageUrl: "https://images.unsplash.com/photo-1552323359-eb093b544c6e",
+    imageUrl: placeholder,
     inStock: false,
   },
   {
@@ -138,7 +140,7 @@ export const items = [
     description:
       "Light and refreshing mango mousse cake with tropical flavors.",
     price: 32.99,
-    imageUrl: "https://images.unsplash.com/photo-1604691639421-e83e00bdcc02",
+    imageUrl: placeholder,
     inStock: true,
   },
   {
@@ -146,7 +148,7 @@ export const items = [
     name: "Pineapple Upside Down Cake",
     description: "Caramelized pineapple slices on a buttery cake.",
     price: 28.99,
-    imageUrl: "https://images.unsplash.com/photo-1599785209707-9d6e19339aa0",
+    imageUrl: placeholder,
     inStock: true,
   },
   {
@@ -154,7 +156,7 @@ export const items = [
     name: "Blueberry Cheesecake",
     description: "Creamy cheesecake with a blueberry topping.",
     price: 33.99,
-    imageUrl: "https://images.unsplash.com/photo-1547514701-9f67819d5436",
+    imageUrl: placeholder,
     inStock: true,
   },
   {
@@ -162,7 +164,7 @@ export const items = [
     name: "Triple Chocolate Cake",
     description: "Layers of dark, milk, and white chocolate cake.",
     price: 35.99,
-    imageUrl: "https://images.unsplash.com/photo-1574169208507-8437616486ce",
+    imageUrl: placeholder,
     inStock: true,
   },
 ];
