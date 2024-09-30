@@ -1,10 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
-import { collection, addDoc } from "firebase/firestore";
+import React from "react";
+//import { collection, addDoc } from "firebase/firestore";
 import SocialButtons from "../../components/buttons/SocialButtons";
 
 const About = () => {
+  {
+    /*
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -41,6 +43,8 @@ const About = () => {
       setIsSubmitting(false);
     }
   };
+*/
+  }
 
   return (
     <main className="min-h-screen bg-base-100 p-8 flex flex-col items-center">
@@ -77,7 +81,10 @@ const About = () => {
         </div>
       </div>
 
-      {/* Contact Form Section */}
+      {/*
+
+  <Contact Form Section>
+  
       <div className="max-w-4xl w-full bg-base-100 rounded-xl shadow-xl p-6 lg:p-8 mt-12">
         <h2 className="text-2xl font-bold text-accent mb-6">Get in Touch</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -159,6 +166,7 @@ const About = () => {
         )}
         {errorMessage && <p className="mt-4 text-red-500">{errorMessage}</p>}
       </div>
+*/}
     </main>
   );
 };
