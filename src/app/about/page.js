@@ -2,7 +2,7 @@
 
 import React from "react";
 //import { collection, addDoc } from "firebase/firestore";
-import SocialButtons from "../../components/buttons/SocialButtons";
+import SocialButtons from "../../components/SocialButtons";
 
 const About = () => {
   {

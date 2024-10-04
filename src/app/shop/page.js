@@ -1,8 +1,8 @@
 import React from "react";
-import ProductCard from "../../components/cards/ProductCard";
+import ProductCard from "@/components/ProductCard";
 import { items } from "utils/items";
 
-export default function ProductsPage() {
+export default function ShopPage() {
   return (
     <main className="min-h-screen bg-base-100 p-4 md:p-12 flex flex-col items-center m-auto">
       <h1 className="text-xl md:text-2xl lg:text-4xl font-bold text-accent mb-6 md:mb-10">
@@ -12,6 +12,7 @@ export default function ProductsPage() {
         {items.map((item) => (
           <ProductCard
             key={item.id || "No Product ID Available"}
+            id={item.id}
             name={item.name || "No Title Available"}
             description={item.description || "No description Available"}
             price={item.price || "No Price Available"}
