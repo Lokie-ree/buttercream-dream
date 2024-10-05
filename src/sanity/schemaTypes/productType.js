@@ -99,6 +99,7 @@ export default {
           { title: "Eggs", value: "eggs" },
           { title: "Gluten", value: "gluten" },
           { title: "Soy", value: "soy" },
+          { title: "Wheat", value: "wheat" },
         ],
       },
     },

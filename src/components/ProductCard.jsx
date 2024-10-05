@@ -14,17 +14,17 @@ const ProductCard = ({ id, name, price, imageSrc, imageAlt }) => {
         </figure>
         {/* Price Overlay */}
         <div className="absolute top-0 left-0 w-full h-8 flex justify-center items-center bg-accent bg-opacity-70 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <p className="text-base-100 text-xl md:text-2xl lg:text-3xl font-bold">
+          <p className="text-base-100 text-lg md:text-xl lg:text-2xl font-bold">
             ${price.toFixed(2)}
           </p>
         </div>
         <div className="card-body bg-base-100 flex flex-col justify-center rounded-b-xl">
-          <h2 className="card-title text-xl text-primary justify-center">
+          <h2 className="card-title text-base text-primary justify-center">
             {name}
           </h2>
           {/* <p className="text-primary">{description}</p> */}
           <button className="btn btn-block bg-accent text-base-100 hover:text-accent hover:bg-neutral">
-            View More Details
+            Details
           </button>
         </div>
       </div>

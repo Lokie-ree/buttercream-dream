@@ -5,7 +5,7 @@ const DesktopMenu = () => {
   return (
     <div className="hidden md:flex md:flex-row">
       {/* Apply inline flexbox styles to force horizontal layout */}
-      <ul className="flex gap-8 text-3xl">
+      <ul className="flex gap-8 text-xl">
         <MenuItems />
       </ul>
     </div>
