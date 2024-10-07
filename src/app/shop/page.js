@@ -1,27 +1,32 @@
 import React from "react";
-import ProductCard from "@/components/ProductCard";
-import { items } from "utils/items";
+import ProductGridCard from "@/components/ProductGridCard";
+import { fetchAllProducts } from "@/sanity/lib/sanityClient";
 
-export default function ShopPage() {
+export default async function ShopPage() {
+  let products = [];
+  try {
+    products = await fetchAllProducts();
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    // You might want to add some error state here
+  }
+
   return (
     <main className="min-h-screen bg-base-100 p-4 md:p-12 flex flex-col items-center m-auto">
       <h1 className="text-xl md:text-2xl lg:text-4xl font-bold text-accent mb-6 md:mb-10">
         My Delicious Sweets
       </h1>
-      <div className="max-w-screen grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl-grid-cols-5 gap-8">
-        {items.map((item) => (
-          <ProductCard
-            key={item.id || "No Product ID Available"}
-            id={item.id}
-            name={item.name || "No Title Available"}
-            description={item.description || "No description Available"}
-            price={item.price || "No Price Available"}
-            imageSrc={item.imageUrl || "Image Not Available"}
-            imageAlt={item.name}
-            isInStock={item.inStock}
-          />
-        ))}
-      </div>
+      {products.length > 0 ? (
+        <div className="max-w-screen grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl-grid-cols-5 gap-8">
+          {products.map((product) => (
+            <ProductGridCard key={product._id} product={product} />
+          ))}
+        </div>
+      ) : (
+        <p className="text-lg text-gray-600">
+          No products available at the moment.
+        </p>
+      )}
     </main>
   );
 }
