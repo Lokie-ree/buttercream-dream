@@ -1,8 +1,6 @@
 "use client";
 
-import Head from "next/head";
 import { notFound } from "next/navigation";
-import { items } from "utils/items";
 import { useContext } from "react";
 import { CartContext } from "@/context/CartContext";
 

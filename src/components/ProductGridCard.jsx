@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 
 const ProductGridCard = ({ product }) => {
   if (!product) {
@@ -25,7 +24,6 @@ const ProductGridCard = ({ product }) => {
             alt={product.name}
             className="object-cover w-full h-52"
           />
-          ;
         </figure>
         {/* Price Overlay */}
         <div className="absolute top-0 left-0 w-full h-8 flex justify-center items-center bg-accent bg-opacity-70 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -37,9 +35,6 @@ const ProductGridCard = ({ product }) => {
           <h2 className="card-title text-base text-primary justify-center">
             {product.name || "Unnamed Product"}
           </h2>
-          <p className="text-sm text-center text-gray-600">
-            {product.productType || "Unknown Type"}
-          </p>
           <button className="btn btn-block bg-accent text-base-100 hover:text-accent hover:bg-neutral">
             Details
           </button>
