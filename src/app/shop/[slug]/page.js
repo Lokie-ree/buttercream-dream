@@ -1,13 +1,17 @@
-"use client";
-
 import { notFound } from "next/navigation";
-import { useContext } from "react";
-import { CartContext } from "@/context/CartContext";
+//import { useContext } from "react";
+//import { CartContext } from "@/context/CartContext";
+import { fetchProductsBySlug } from "@/sanity/lib/sanityClient";
+import Image from "next/image";
+import VariantSelector from "@/components/VariantSelector";
+import QuantitySelector from "@/components/QuantitySelector";
 
-export default function ShopProductDetail({ params }) {
-  const { shopId } = params;
-  const product = items.find((p) => p.id === parseInt(shopId));
-  const { addToCart } = useContext(CartContext);
+export default async function ShopProductDetail({ params }) {
+  const { slug } = params;
+
+  const product = await fetchProductsBySlug(slug);
+
+  //const { addToCart } = useContext(CartContext);
 
   if (!product) {
     notFound();
@@ -18,27 +22,50 @@ export default function ShopProductDetail({ params }) {
       <div className="flex flex-col md:flex-row items-center">
         {/* Product image */}
         <div className="w-full md:w-1/2 mb-6 md:mb-0">
-          <img
+          <Image
             src={product.imageUrl}
             alt={product.name}
+            width={500}
+            height={500}
             className="w-full h-auto rounded-xl shadow-xl object-cover"
+            priority
           />
         </div>
+
         {/* Product info */}
         <div className="w-full md:w-1/2 md:pl-12">
-          <h1 className="text-3xl md:text-4xl text-accent font-bold mb-4">
+          <h1 className="text-3xl md:text-4xl text-primary font-bold mb-4">
             {product.name}
           </h1>
-          <p className="text-xl md:text-2xl font-semibold text-primary mb-6">
-            ${product.price.toFixed(2)}
-          </p>
-          <p className="text-base md:text-lg text-primary mb-6">
-            {product.description}
-          </p>
+          <p className="text-base md:text-lg mb-6">{product.description}</p>
+
+          {/* Variant Selector */}
+          {product.variants?.length > 0 && (
+            <div className="mb-6">
+              <label
+                htmlFor="variant"
+                className="block mb-2 text-lg font-semibold"
+              >
+                Choose a variant
+              </label>
+              <VariantSelector variants={product.variants} />
+            </div>
+          )}
+
+          {/* Quantity Selector */}
+          <div className="mb-6">
+            <label
+              htmlFor="quantity"
+              className="block mb-2 text-lg font-semibold"
+            >
+              Select a Quantity
+            </label>
+            <QuantitySelector />
+          </div>
 
           {/* Add to cart button */}
           <button
-            onClick={() => addToCart(product)}
+            /* onClick={() => addToCart(product)} */
             className="btn btn-accent w-full text-base-100 hover:bg-neutral-focus px-8 py-3 rounded-full transition-duration-300"
           >
             Add to Cart

@@ -1,14 +1,16 @@
 import React from "react";
 
-const VariantSelector = () => {
+const VariantSelector = ({ variants }) => {
   return (
-    <select className="select select-accent w-full max-w-xs">
+    <select className="select select-accent w-auto max-w-xs">
       <option selected disabled>
-        Select a variant
+        Choose one
       </option>
-      <option>5-inch $12</option>
-      <option>9-inch $20</option>
-      <option>Full Sheet $50</option>
+      {variants.map((variant, index) => (
+        <option key={index} value={variant.variantName}>
+          {variant.variantName} - ${variant.price.toFixed(2)}
+        </option>
+      ))}
     </select>
   );
 };

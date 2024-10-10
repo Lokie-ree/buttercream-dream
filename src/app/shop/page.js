@@ -4,11 +4,17 @@ import { fetchAllProducts } from "@/sanity/lib/sanityClient";
 
 export default async function ShopPage() {
   let products = [];
+  let loading = true;
   try {
     products = await fetchAllProducts();
+    loading = false;
   } catch (error) {
     console.error("Error fetching products:", error);
-    // You might want to add some error state here
+    loading = false;
+  }
+
+  if (loading) {
+    return <p>Loading products...</p>;
   }
 
   return (
@@ -17,14 +23,14 @@ export default async function ShopPage() {
         My Delicious Sweets
       </h1>
       {products.length > 0 ? (
-        <div className="max-w-screen grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl-grid-cols-5 gap-8">
+        <div className="max-w-screen grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8">
           {products.map((product) => (
             <ProductGridCard key={product._id} product={product} />
           ))}
         </div>
       ) : (
-        <p className="text-lg text-gray-600">
-          No products available at the moment.
+        <p className="text-lg text-red-500">
+          No products available at the moment. Please check back later.
         </p>
       )}
     </main>
