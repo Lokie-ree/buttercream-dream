@@ -2,7 +2,7 @@ import React from "react";
 
 const VariantSelector = ({ variants }) => {
   return (
-    <select className="select select-accent w-auto max-w-xs">
+    <select className="select select-accent w-full">
       <option selected disabled>
         Choose one
       </option>

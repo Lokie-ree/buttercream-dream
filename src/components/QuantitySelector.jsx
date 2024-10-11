@@ -12,21 +12,17 @@ const QuantitySelector = () => {
   const quantities = Array.from({ length: 10 }, (_, index) => index + 1);
 
   return (
-    <div className="flex">
-      <div className="join flex">
-        <select
-          value={quantity}
-          onChange={handleQuantityChange}
-          className="select select-accent w-auto"
-        >
-          {quantities.map((qty) => (
-            <option key={qty} value={qty}>
-              {qty}
-            </option>
-          ))}
-        </select>
-      </div>
-    </div>
+    <select
+      value={quantity}
+      onChange={handleQuantityChange}
+      className="select select-accent w-full"
+    >
+      {quantities.map((qty) => (
+        <option key={qty} value={qty}>
+          {qty}
+        </option>
+      ))}
+    </select>
   );
 };
 
