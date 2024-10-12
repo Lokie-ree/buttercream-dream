@@ -19,7 +19,7 @@ export default async function ShopPage() {
 
   return (
     <main className="min-h-screen bg-base-100 p-4 md:p-12 flex flex-col items-center m-auto">
-      <h1 className="text-xl md:text-2xl lg:text-4xl font-bold text-accent mb-6 md:mb-10">
+      <h1 className="text-xl md:text-3xl lg:text-4xl font-bold text-accent mb-6 md:mb-10">
         My Delicious Sweets
       </h1>
       {products.length > 0 ? (

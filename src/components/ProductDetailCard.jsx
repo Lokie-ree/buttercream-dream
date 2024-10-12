@@ -5,7 +5,7 @@ import QuantitySelector from "./QuantitySelector";
 const ProductDetailCard = () => {
   return (
     <div className="card bg-base-100 lg:card-side shadow-xl">
-      <figure className="rounded-t-xl overflow-hidden">
+      <figure className="overflow-hidden">
         <img
           src="/assets/cake.jpg"
           alt="Example Cake"

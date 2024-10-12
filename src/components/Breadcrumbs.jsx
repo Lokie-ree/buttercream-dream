@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Breadcrumbs = () => {
@@ -5,12 +6,11 @@ const Breadcrumbs = () => {
     <div className="breadcrumbs text-sm mb-4">
       <ul>
         <li>
-          <a>Home</a>
+          <Link href="/">Home</Link>
         </li>
         <li>
-          <a>Documents</a>
+          <Link href="/shop">Shop</Link>
         </li>
-        <li>Add Document</li>
       </ul>
     </div>
   );
