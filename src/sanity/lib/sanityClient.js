@@ -10,7 +10,7 @@ const client = createClient({
 export async function fetchAllProducts() {
   return client.fetch(`
     *[_type == "product"]{
-      _id,
+      "id": _id,
       name,
       slug,
       productType,
@@ -32,7 +32,7 @@ export async function fetchProductsBySlug(slug) {
   return client.fetch(
     `
     *[_type == "product" && slug.current == $slug][0]{
-      _id,
+      "id": _id,
       name,
       slug,
       productType,

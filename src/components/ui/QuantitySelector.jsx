@@ -1,20 +1,15 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 
-const QuantitySelector = () => {
-  const [quantity, setQuantity] = useState(1);
-
-  const handleQuantityChange = (e) => {
-    setQuantity(parseInt(e.target.value));
-  };
-
+const QuantitySelector = ({ quantity, onQuantityChange }) => {
+  console.log("onQuantityChange:", onQuantityChange); // Add this to debug
   const quantities = Array.from({ length: 10 }, (_, index) => index + 1);
 
   return (
     <select
       value={quantity}
-      onChange={handleQuantityChange}
+      onChange={(e) => onQuantityChange(parseInt(e.target.value, 10))}
       className="select select-accent w-full"
     >
       {quantities.map((qty) => (

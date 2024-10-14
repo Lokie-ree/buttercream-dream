@@ -1,5 +1,5 @@
 import React from "react";
-import ProductGridCard from "@/components/ProductGridCard";
+import ProductGridCard from "@/components/cards/ProductGridCard";
 import { fetchAllProducts } from "@/sanity/lib/sanityClient";
 
 export default async function ShopPage() {

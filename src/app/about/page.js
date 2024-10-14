@@ -1,7 +1,13 @@
 "use client";
 
 import React from "react";
-import ProfileCard from "@/components/ProfileCard";
+import { ProfileCard } from "@/components/cards";
+import {
+  CTASection,
+  FAQSection,
+  GallerySection,
+  ServicesSection,
+} from "@/components/sections";
 
 const About = () => {
   return (
@@ -10,6 +16,10 @@ const About = () => {
         About Me
       </h1>
       <ProfileCard />
+      <ServicesSection />
+      <GallerySection />
+      <FAQSection />
+      <CTASection />
     </main>
   );
 };

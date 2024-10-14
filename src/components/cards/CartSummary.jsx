@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 
-const CartSummary = ({ cartItems }) => {
+const CartSummaryCard = () => {
+  const { cartItems } = useContext(CartContext);
+
   const total = cartItems.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
@@ -19,4 +22,4 @@ const CartSummary = ({ cartItems }) => {
   );
 };
 
-export default CartSummary;
+export default CartSummaryCard;

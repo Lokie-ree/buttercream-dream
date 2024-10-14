@@ -1,14 +1,20 @@
-import React from "react";
-import CartEmptyState from "@/components/CartEmptyState";
-import CartSummary from "@/components/CartSummary";
-import CartItemCard from "@/components/CartItemCard";
+"use client";
 
-export default function CartPage({ cartItems }) {
+import React, { useContext } from "react";
+import CartEmptyState from "@/components/layout/CartEmptyState";
+import CartSummaryCard from "@/components/cards/CartSummary";
+import CartItemCard from "@/components/cards/CartItemCard";
+import { CartContext } from "@/components/context/CartContext";
+
+export default function CartPage() {
+  const { cartItems } = useContext(CartContext);
+
   return (
     <div className="container mx-auto p-6 md:p-12 min-h-screen bg-base-100">
-      <h1 className="text-3xl md:text-4xl text-accent font-bold mb-8">
+      <h1 className="text-3xl md:text-5xl text-accent font-bold mb-8">
         Your Cart
       </h1>
+
       {/* If cart is empty, show empty state component */}
       {cartItems.length === 0 ? (
         <CartEmptyState />
@@ -22,7 +28,7 @@ export default function CartPage({ cartItems }) {
           </div>
           {/* Cart Summary Card */}
           <div className="lg:col-span-1">
-            <CartSummary cartItems={cartItems} />
+            <CartSummaryCard />
           </div>
         </div>
       )}

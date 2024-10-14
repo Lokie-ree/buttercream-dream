@@ -1,8 +1,8 @@
 import React from "react";
 import MobileMenu from "./MobileMenu";
-import Logo from "./Logo";
+import Logo from "../ui/Logo";
 import DesktopMenu from "./DesktopMenu";
-import CartIcon from "./CartIcon";
+import CartIcon from "../ui/CartIcon";
 
 const Navbar = () => {
   return (
