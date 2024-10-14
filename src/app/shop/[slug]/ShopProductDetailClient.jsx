@@ -26,6 +26,7 @@ export default function ShopProductDetailClient({ product }) {
 
   const handleAddToCart = () => {
     const variantId = selectedVariant.variantName || "default";
+
     const itemToAdd = {
       id: `${product.id}-${variantId}`,
       name: product.name,
@@ -33,6 +34,8 @@ export default function ShopProductDetailClient({ product }) {
       imageUrl: product.imageUrl,
       variant: selectedVariant,
       quantity,
+      productId: product.id,
+      variants: product.variants,
     };
     console.log("Item to add:", itemToAdd);
     addItemToCart(itemToAdd);

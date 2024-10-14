@@ -15,7 +15,7 @@ const CartSummaryCard = () => {
       <p className="text-lg font-semibold">Total: ${total.toFixed(2)}</p>
 
       {/* Checkout Button */}
-      <button className="btn btn-accent w-full mt-6">
+      <button className="btn btn-accent w-full text-base-100 hover:text-primary hover:bg-neutral mt-5">
         Proceed to Checkout
       </button>
     </div>

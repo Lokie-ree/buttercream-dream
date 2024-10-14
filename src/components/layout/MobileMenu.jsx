@@ -12,7 +12,7 @@ const MobileMenu = () => {
   };
 
   return (
-    <div className="md:hidden">
+    <div className="md:hidden text-base-100">
       {/* Button to Open the Menu */}
       <button
         className="btn btn-ghost"

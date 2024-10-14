@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import Image from "next/image";
 import { CartContext } from "../context/CartContext";
 import QuantitySelector from "../ui/QuantitySelector";
+import { IoTrashOutline } from "react-icons/io5";
 
 const CartItemCard = ({ item }) => {
   const { updateItemQuantity, removeItemFromCart } = useContext(CartContext);
@@ -38,23 +39,21 @@ const CartItemCard = ({ item }) => {
           </p>
 
           {/* Quantity Selector */}
-          <div className="mt-4 flex items-center">
+          <div className="mt-4 flex items-center border border-black">
             <label
               htmlFor={`quantity-${item.id}`}
               className="mr-2 text-sm text-gray-600"
-            >
-              Quantity:
-            </label>
+            ></label>
             <QuantitySelector
               quantity={item.quantity}
               onQuantityChange={handleQuantityChange}
+              className="w-20 h-4 text-sm text-center"
             />
-          </div>
-
-          {/* Remove Item Button */}
-          <div className="mt-4">
-            <button onClick={handleRemoveItem} className="btn btn-sm btn-error">
-              Remove
+            <button onClick={handleRemoveItem} className="btn btn-sm btn-ghost">
+              <IoTrashOutline
+                size={22}
+                className="text-accent hover:text-error"
+              />
             </button>
           </div>
         </div>

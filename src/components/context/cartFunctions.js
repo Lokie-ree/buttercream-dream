@@ -30,6 +30,21 @@ export const updateItemQuantity = (cartItems, itemId, quantity) => {
   return updatedItems;
 };
 
+export const updateItemVariant = (cartItems, itemId, newVariant) => {
+  return cartItems.map((cartItem) => {
+    if (cartItem.id === itemId) {
+      const newId = `${cartItem.productId}-${newVariant.variantName}`;
+      return {
+        ...cartItem,
+        id: newId,
+        variant: newVariant,
+        price: newVariant.price,
+      };
+    }
+    return cartItem;
+  });
+};
+
 export const clearCart = () => {
   return [];
 };
