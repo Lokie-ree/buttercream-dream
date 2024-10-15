@@ -2,7 +2,7 @@ import React from "react";
 
 const ProfileCard = () => {
   return (
-    <div className="card md:card-side bg-base-100 rounded-xl shadow-xl">
+    <div className="card md:card-side w-full md:w-2/3 bg-base-100 rounded-xl shadow-xl">
       <figure>
         <img
           src="/assets/blovely_photo2.jpg"

@@ -63,7 +63,7 @@ const CartSideMenu = ({ isOpen, toggleCart }) => {
                       onQuantityChange={(newQuantity) =>
                         updateItemQuantity(item.id, newQuantity)
                       }
-                      className="w-16 h-4 text-sm"
+                      className="w-20 h-8 text-sm text-center"
                     />
                     <button
                       onClick={() => removeItemFromCart(item.id)}
