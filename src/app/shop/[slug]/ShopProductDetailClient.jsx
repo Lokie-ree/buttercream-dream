@@ -51,7 +51,7 @@ export default function ShopProductDetailClient({ product }) {
             alt={product.name}
             width={500}
             height={500}
-            className="w-full md:w-1/2 h-auto rounded-xl shadow-xl object-cover"
+            className="w-full md:w-1/2 h-auto rounded-box shadow-xl object-cover"
             priority
           />
         </div>

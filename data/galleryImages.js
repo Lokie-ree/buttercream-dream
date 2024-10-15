@@ -3,28 +3,28 @@
 const galleryImages = [
   {
     id: 1,
-    src: "/assets/gallery/cake1.jpg",
-    alt: "Elegant white wedding cake with floral decorations",
+    src: "/assets/frozen_birthday_cake.jpg",
+    alt: "Birthday cake with a Disney Frozen theme",
   },
   {
     id: 2,
-    src: "/assets/gallery/cake2.jpg",
-    alt: "Colorful birthday cake with balloons and candles",
+    src: "/assets/minnie_cupcakes.jpg",
+    alt: "Cupcakes featuring Minnie Mouse",
   },
   {
     id: 3,
-    src: "/assets/gallery/cupcakes1.jpg",
-    alt: "Assorted cupcakes with frosting and sprinkles",
+    src: "/assets/pink_cookies.jpg",
+    alt: "Cookies with pink frosting",
   },
   {
     id: 4,
-    src: "/assets/gallery/dessert_table1.jpg",
-    alt: "Dessert table with various pastries and sweets",
+    src: "/assets/mini_cake.jpg",
+    alt: "A mini sundae cake",
   },
   {
     id: 5,
-    src: "/assets/gallery/cake3.jpg",
-    alt: "Three-tiered cake with gold accents",
+    src: "/assets/ninjaturtles_cupcakes.jpg",
+    alt: "Cupcakes featuring the Ninja Turtles",
   },
 ];
 

@@ -1,11 +1,10 @@
-import React from "react";
+"use client";
 
-const page = () => {
-  return (
-    <>
-      <div>Dev</div>
-    </>
-  );
+import React, { useState } from "react";
+import faqs from "data/faqs";
+
+const dev = () => {
+  return <div>dev</div>;
 };
 
-export default page;
+export default dev;

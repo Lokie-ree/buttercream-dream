@@ -1,5 +1,5 @@
 ** Components Needed **
-  Banner
+  Remove Item Modal
   Buttons
     checkout (auth => checkout : login to checkout)
     continue shopping (clicked => Product Listing Page)
@@ -13,8 +13,9 @@
   Home
   Shop (All products)
   ShopDetail (Product detail)
+    Tooltip once item added to cart
   About
-    Sections: FAQ, Gallery, Services, CTA (Google Form)
+    Sections: Gallery, Services, CTA (Google Form)
   Cart
     Subtotal Section
     subtotal

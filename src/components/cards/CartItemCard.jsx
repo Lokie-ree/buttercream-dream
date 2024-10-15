@@ -26,7 +26,7 @@ const CartItemCard = ({ item }) => {
             alt={item.name}
             width={150}
             height={150}
-            className="rounded-xl object-cover"
+            className="rounded-box shadow-xl object-cover"
           />
         </div>
 
@@ -35,7 +35,7 @@ const CartItemCard = ({ item }) => {
           <h2 className="text-xl font-bold">{item.name}</h2>
           <p className="text-sm text-gray-500">{item.variant.variantName}</p>
           <p className="text-lg font-semibold text-accent">
-            ${item.price.toFixed(2)}
+            ${(item.price * item.quantity).toFixed(2)}
           </p>
 
           {/* Quantity Selector */}
