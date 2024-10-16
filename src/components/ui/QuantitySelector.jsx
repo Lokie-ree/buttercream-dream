@@ -10,7 +10,7 @@ const QuantitySelector = ({ quantity, onQuantityChange, className = "" }) => {
     <select
       value={quantity}
       onChange={(e) => onQuantityChange(parseInt(e.target.value, 10))}
-      className={`select select-accent ${className}`}
+      className={`select select-accent w-full ${className}`}
     >
       {quantities.map((qty) => (
         <option key={qty} value={qty}>

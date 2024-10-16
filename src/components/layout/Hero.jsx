@@ -6,10 +6,10 @@ import { FaBirthdayCake } from "react-icons/fa";
 const Hero = () => {
   return (
     <main className="flex min-h-screen items-center justify-center bg-base-100 overflow-x-clip">
-      <div className="hero min-h-screen">
+      <div className="hero min-h-screen mx-auto">
         <div className="hero-content flex-col lg:flex-row gap-12 lg:gap-8">
           <div className="flex flex-col w-full lg:w-1/2">
-            <h1 className="text-5xl lg:text-6xl font-bold text-accent">
+            <h1 className="text-4xl lg:text-6xl font-bold text-accent">
               Baked to Perfection
             </h1>
             <h2 className="text-2xl lg:text-3xl font-extra-bold mt-2 text-primary">

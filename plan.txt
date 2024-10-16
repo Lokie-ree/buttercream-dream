@@ -13,16 +13,15 @@
   Home
   Shop (All products)
   ShopDetail (Product detail)
-    Tooltip once item added to cart
+    Tooltip once item added to cart/Notification to user when product is added to cart
   About
     Sections: Gallery, Services, CTA (Google Form)
   Cart
-    Subtotal Section
-    subtotal
     taxes/shipping
     Checkout Button (stripe => payment intent, new order)
+    Remove button (triggers a modal where users can confirm remove)
     Continue Shopping Button
-  checkout
+  Checkout
     Total price of items
     Shipping & Handling
     Estimated tax to be collected

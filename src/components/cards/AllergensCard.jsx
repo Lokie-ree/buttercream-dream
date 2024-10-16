@@ -4,7 +4,7 @@ const AllergensCard = ({ allergens }) => {
   return (
     <div
       tabIndex={0}
-      className="collapse collapse-plus border border-accent bg-neutral mb-6"
+      className="collapse collapse-plus border border-accent bg-neutral mb-3"
     >
       <div className="collapse-title text-sm md:text-md text-primary font-medium">
         Nutritional information and allergens
