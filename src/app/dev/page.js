@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
-import faqs from "data/faqs";
+import ConfirmModal from "@/components/ui/ConfirmModal";
 
 const dev = () => {
-  return <div>dev</div>;
+  return <ConfirmModal />;
 };
 
 export default dev;

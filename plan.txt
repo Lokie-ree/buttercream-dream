@@ -1,31 +1,19 @@
-** Components Needed **
-  Remove Item Modal
-  Buttons
-    checkout (auth => checkout : login to checkout)
-    continue shopping (clicked => Product Listing Page)
+Short Term Enhancements
+  > Continue shopping option routing back to product listing
+  > Notification/feedback when adding item to cart
+  > Loading indicators and smooth transitions
+  > Add subtotal to cart icon
 
-** Layout **
-  Navbar
-  Main Section (consistent across all pages)
-  Footer
-
-** Pages **
-  Home
-  Shop (All products)
-  ShopDetail (Product detail)
-    Tooltip once item added to cart/Notification to user when product is added to cart
-  About
-    Sections: Gallery, Services, CTA (Google Form)
-  Cart
-    taxes/shipping
-    Checkout Button (stripe => payment intent, new order)
-    Remove button (triggers a modal where users can confirm remove)
-    Continue Shopping Button
-  Checkout
-    Total price of items
-    Shipping & Handling
-    Estimated tax to be collected
-    Order total
-    Payment info
-    Shipping info
-    Button (place order)
+Mid Term Enhancements
+  > Product variant selection in cart
+  > Quick view modal on product listing page (product details, add to cart, etc.)
+  > Product recommendations on empty cart
+  
+Long Term Enhancements
+  > Discount code input element on cart page
+  > User accounts and "save cart for later"
+  > Popup in the corner of website that shows recent purchases "John Doe bought 5 cupcakes 3 mins ago"
+  > Custom dashboard for managing products
+  > Option to purchase at a later date (buy a cake for a birthday that is fulfilled in the future)
+  > Customers can review products
+  > Automatic email campaign prompting customers to submit a review

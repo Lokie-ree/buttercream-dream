@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { IoCartOutline } from "react-icons/io5";
 import { CartContext } from "../context/CartContext";
-import CartSideMenu from "../layout/CartSideMenu";
+import CartSideMenu from "./CartSideMenu";
 
 const CartIcon = () => {
   const { cartItems } = useContext(CartContext);

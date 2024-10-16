@@ -4,7 +4,7 @@ import React, { useContext } from "react";
 import MobileMenu from "./MobileMenu";
 import Logo from "../ui/Logo";
 import DesktopMenu from "./DesktopMenu";
-import CartIcon from "../ui/CartIcon";
+import CartIcon from "../cart/CartIcon";
 import { CartContext } from "../context/CartContext";
 
 const Navbar = () => {

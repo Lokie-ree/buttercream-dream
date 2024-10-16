@@ -13,7 +13,7 @@ const VariantSelector = ({ variants, selectedVariant, onVariantChange }) => {
       }}
       className="select select-accent w-full"
     >
-      <option>Choose one</option>
+      <option disabled>Choose one</option>
       {variants.map((variant) => (
         <option key={variant.variantName} value={variant.variantName}>
           {variant.variantName} - ${variant.price.toFixed(2)}
