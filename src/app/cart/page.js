@@ -17,7 +17,7 @@ export default function CartPage() {
 
   return (
     <div className="container mx-auto p-6 md:p-12 min-h-screen bg-base-100">
-      <h1 className="text-3xl md:text-5xl text-accent font-bold mb-8">
+      <h1 className="text-xl md:text-4xl font-bold text-center text-accent mb-6 md:mb-10">
         Your Cart
       </h1>
 
@@ -25,9 +25,9 @@ export default function CartPage() {
       {cartItems.length === 0 ? (
         <CartEmptyState />
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <div className="flex flex-col lg:flex-row justify-between gap-6">
           {/* Cart Items Card */}
-          <div className="lg:col-span-2">
+          <div className="flex-grow">
             {cartItems.map((item) => (
               <CartItem
                 key={item.id}
@@ -39,7 +39,7 @@ export default function CartPage() {
             ))}
           </div>
           {/* Cart Summary Card */}
-          <div className="lg:col-span-1">
+          <div className="lg:w-1/3">
             <CartSummary subtotal={subtotal} />
           </div>
         </div>

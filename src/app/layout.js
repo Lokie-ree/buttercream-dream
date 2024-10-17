@@ -15,10 +15,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} min-h-screen w-full`}>
+      <body className={`${inter.className} bg-base-100 text-primary font-sans`}>
         <CartProvider>
           <Navbar />
-          {children}
+          <div className="container min-h-screen">{children}</div>
         </CartProvider>
         <Toaster position="bottom-center" reverseOrder={false} />
         <Footer />

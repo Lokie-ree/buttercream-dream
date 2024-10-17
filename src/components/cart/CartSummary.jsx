@@ -7,7 +7,7 @@ const CartSummary = ({ subtotal }) => {
       <p className="text-lg font-bold">Subtotal: ${subtotal.toFixed(2)}</p>
       <Link href="/cart">
         <button className="btn btn-accent btn-block text-base-100 mt-2 hover:bg-neutral hover:text-primary">
-          View Cart
+          Proceed to Checkout
         </button>
       </Link>
     </div>

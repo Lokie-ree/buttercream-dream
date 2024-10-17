@@ -1,5 +1,5 @@
 import React from "react";
-import SocialButtons from "../ui/SocialButtons";
+import SocialButtonGroup from "../ui/SocialButtonGroup";
 
 const Footer = () => {
   return (
@@ -10,7 +10,7 @@ const Footer = () => {
         </p>
       </aside>
       <nav className="flex justify-center items-center gap-4 md:mt-0 md:justify-end">
-        <SocialButtons />
+        <SocialButtonGroup />
       </nav>
     </footer>
   );

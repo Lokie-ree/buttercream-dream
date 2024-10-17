@@ -1,27 +1,21 @@
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 
 const CTACard = () => {
   return (
-    <section className="my-6">
-      <div className="card bg-base-100 w-full md:w-1/2 mx-auto shadow-xl">
-        <h2 className="text-xl sm:text-3xl md:text-5xl font-bold text-accent mb-6">
-          Get in Touch with Me!
+    <section className="w-full mx-auto bg-base-100 rounded-lg">
+      <div className="card card-compact shadow-xl rounded-xl bg-base-100 w-full">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-accent text-center mb-2">
+          Get in Touch!
         </h2>
-        <figure>
-          <Image
-            src="/assets/brand_logo_240x240.jpg"
-            alt="I Dream of Buttercream logo"
-            width={240}
-            height={240}
-            className="rounded-box w-full object-cover"
-          />
-        </figure>
         <div className="card-body">
+          <p className="text-lg md:text-xl mb-2">
+            I'd love to hear from you! Reach out to discuss your cake ideas,
+            place an order, or just say hello.
+          </p>
           <div className="card-actions justify-center">
             <Link href="#">
-              <button className="btn btn-accent text-base-100 w-full">
+              <button className="btn btn-accent text-base-100 w-full md:w-auto">
                 Contact Me
               </button>
             </Link>
