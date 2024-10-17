@@ -6,7 +6,7 @@ import {
   removeItemFromCart as removeItemFromCartFunction,
   updateItemQuantity as updateItemQuantityFunction,
   clearCart as clearCartFunction,
-  getTotalPrice as getTotalPriceFunction,
+  getSubtotal as getSubtotalFunction,
 } from "./cartFunctions";
 
 export const CartContext = createContext();
@@ -17,7 +17,6 @@ export const CartProvider = ({ children }) => {
   // Load Cart from localStorage on mount
   useEffect(() => {
     const storedCart = localStorage.getItem("cartItems");
-    console.log("Loading cart items from localStorage:", storedCart);
 
     if (storedCart) {
       setCartItems(JSON.parse(storedCart));
@@ -26,7 +25,6 @@ export const CartProvider = ({ children }) => {
 
   // Update localStorage whenever cartItems change
   useEffect(() => {
-    console.log("Updating localStorage with cart items:", cartItems);
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
 
@@ -50,8 +48,8 @@ export const CartProvider = ({ children }) => {
     setCartItems(clearCartFunction());
   };
 
-  const getTotalPrice = () => {
-    return getTotalPriceFunction(cartItems);
+  const getSubtotal = () => {
+    return getSubtotalFunction(cartItems);
   };
 
   const value = {
@@ -60,7 +58,7 @@ export const CartProvider = ({ children }) => {
     removeItemFromCart,
     updateItemQuantity,
     clearCart,
-    getTotalPrice,
+    getSubtotal,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

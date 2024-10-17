@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import QuantitySelector from "../ui/QuantitySelector";
 import VariantSelector from "../ui/VariantSelector";
+import toast from "react-hot-toast";
 
 const AddToCartForm = ({ product, selectedVariant, onVariantChange }) => {
   const [quantity, setQuantity] = useState(1);
@@ -13,6 +14,7 @@ const AddToCartForm = ({ product, selectedVariant, onVariantChange }) => {
 
   const handleAddToCart = () => {
     const variantId = selectedVariant.variantName || "default";
+    toast.success(`${product.name} successfully added to cart!`);
 
     const itemToAdd = {
       id: `${product.id}-${variantId}`,

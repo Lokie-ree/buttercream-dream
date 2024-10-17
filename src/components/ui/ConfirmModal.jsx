@@ -2,12 +2,19 @@ import React, { forwardRef } from "react";
 
 const ConfirmModal = forwardRef(({ id, message, onConfirm, onCancel }, ref) => {
   return (
-    <dialog ref={ref} id={id} className="modal modal-bottom sm:modal-middle">
+    <dialog
+      ref={ref}
+      id={id}
+      className="modal modal-bottom sm:modal-middle"
+      onClose={onCancel}
+    >
       <div className="modal-box">
-        <h3 className="font-bold text-lg text-primary">Confirm Action</h3>
-        <p className="py-4 text-accent">{message}</p>
-        <div className="modal-action">
-          <button className="btn btn-error" onClick={onConfirm}>
+        <h3 className="font-extrabold text-lg text-primary text-center">
+          Confirm Action
+        </h3>
+        <p className="py-4 text-secondary">{message}</p>
+        <div className="modal-action justify-center gap-8">
+          <button className="btn btn-accent text-base-100" onClick={onConfirm}>
             Confirm
           </button>
           <button

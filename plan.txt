@@ -1,8 +1,6 @@
 Short Term Enhancements
   > Continue shopping option routing back to product listing
-  > Notification/feedback when adding item to cart
   > Loading indicators and smooth transitions
-  > Add subtotal to cart icon
 
 Mid Term Enhancements
   > Product variant selection in cart
