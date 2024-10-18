@@ -9,25 +9,30 @@ const FAQSection = () => {
 
   const toggleCategory = (index) => {
     if (openCategoryIndex === index) {
-      setOpenCategoryIndex(null); // Close if the same category is clicked
+      // Close if same category is clicked
+      setOpenCategoryIndex(null);
     } else {
-      setOpenCategoryIndex(index); // Open the clicked category
-      setOpenQuestionIndex(null); // Reset the question state when category changes
+      // Open the clicked category
+      setOpenCategoryIndex(index);
+      // Reset the question state when category changes
+      setOpenQuestionIndex(null);
     }
   };
 
   const toggleQuestion = (index, e) => {
     e.stopPropagation();
     if (openQuestionIndex === index) {
-      setOpenQuestionIndex(null); // Close if the same question is clicked
+      // Close if the same question is clicked
+      setOpenQuestionIndex(null);
     } else {
-      setOpenQuestionIndex(index); // Open the clicked question
+      // Open the clicked question
+      setOpenQuestionIndex(index);
     }
   };
 
   return (
     <section>
-      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-accent text-center mb-2">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-accent text-center mb-4">
         FAQs
       </h2>
 
@@ -37,7 +42,7 @@ const FAQSection = () => {
           {/* Collapsible Category */}
           <div
             onClick={() => toggleCategory(categoryIndex)}
-            className={`collapse collapse-plus bg-primary text-base-100 rounded-box mb-2 transition-all duration-300 ease-in-out ${
+            className={`collapse collapse-plus bg-primary text-base-100 rounded-box mb-1 transition-all duration-300 ease-in-out ${
               openCategoryIndex === categoryIndex ? "collapse-open" : ""
             }`}
           >
@@ -52,18 +57,18 @@ const FAQSection = () => {
                     {/* Collapsible Question */}
                     <div
                       onClick={(e) => toggleQuestion(questionIndex, e)}
-                      className={`collapse collapse-arrow bg-base-100 text-primary mb-1 transition-all duration-300 ease-in-out ${
+                      className={`collapse collapse-arrow bg-base-100 text-secondary mb-1 transition-all duration-300 ease-in-out ${
                         openQuestionIndex === questionIndex
                           ? "collapse-open"
                           : ""
                       }`}
                     >
-                      <div className="collapse-title text-md font-medium">
+                      <div className="collapse-title text-md font-semibold">
                         {faq.question}
                       </div>
                       {openQuestionIndex === questionIndex && (
                         <div className="collapse-content transition-all duration-300 ease-in-out">
-                          <p>{faq.answer}</p>
+                          <p className="font-normal">{faq.answer}</p>
                         </div>
                       )}
                     </div>

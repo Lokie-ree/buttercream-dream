@@ -3,8 +3,10 @@ import { IoTrashOutline } from "react-icons/io5";
 import QuantitySelector from "../ui/QuantitySelector";
 import ConfirmModal from "../ui/ConfirmModal";
 import Image from "next/image";
+import Link from "next/link";
 
 const CartItem = ({ item, updateItemQuantity, removeItem, showImage }) => {
+  console.log(item.slug);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const modalRef = useRef(null);
 
@@ -40,21 +42,25 @@ const CartItem = ({ item, updateItemQuantity, removeItem, showImage }) => {
         {/* Image column */}
         {showImage && (
           <div className="w-full md:w-1/3 mb-4 md:mb-0">
-            <Image
-              src={item.imageUrl}
-              alt={item.name}
-              width={150}
-              height={150}
-              className="w-full md:w-1/3 rounded-box shadow-md"
-              objectFit="cover"
-            />
+            <Link href={`/shop/${item.slug}`} passHref>
+              <Image
+                src={item.imageUrl}
+                alt={item.name}
+                width={150}
+                height={150}
+                className="w-full md:w-1/3 rounded-box shadow-md"
+                objectFit="cover"
+              />
+            </Link>
           </div>
         )}
 
         {/* Product info, quantity selector, and trash icon in second column */}
         <div className="w-full md:w-2/3 flex flex-col justify-between">
           <div className="flex flex-col">
-            <p className="font-semibold truncate">{item.name}</p>
+            <Link href={`/shop/${item.slug}`} passHref>
+              <h2 className="font-semibold truncate">{item.name}</h2>
+            </Link>
             {item.variant?.variantName && (
               <p className="text-sm text-gray-500">
                 {item.variant.variantName}

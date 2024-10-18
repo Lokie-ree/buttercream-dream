@@ -15,6 +15,8 @@ export default function CartPage() {
     0
   );
 
+  console.log(cartItems);
+
   return (
     <div className="container mx-auto p-6 md:p-12 min-h-screen bg-base-100">
       <h1 className="text-xl md:text-4xl font-bold text-center text-accent mb-6 md:mb-10">

@@ -10,10 +10,10 @@ const AllergensCard = ({ allergens }) => {
         Nutritional information and allergens
       </div>
       <div className="collapse-content">
-        <ol>
+        <ol className="list-disc list-inside text-gray-700 ml-4">
           {allergens.map((allergen, index) => (
             <li key={index} value={allergen.options}>
-              {allergen.options}
+              {allergen}
             </li>
           ))}
         </ol>

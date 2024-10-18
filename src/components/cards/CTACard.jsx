@@ -9,13 +9,13 @@ const CTACard = () => {
           Get in Touch!
         </h2>
         <div className="card-body">
-          <p className="text-lg md:text-xl mb-2">
+          <p className="text-lg md:text-xl mb-2 text-secondary">
             I'd love to hear from you! Reach out to discuss your cake ideas,
             place an order, or just say hello.
           </p>
           <div className="card-actions justify-center">
             <Link href="#">
-              <button className="btn btn-accent text-base-100 w-full md:w-auto">
+              <button className="btn btn-primary text-base-100 hover:bg-neutral hover:text-primary w-full md:w-auto">
                 Contact Me
               </button>
             </Link>
