@@ -6,4 +6,12 @@
   .container {
     @apply max-w-screen-xl mx-auto;
   }
+  .tab {
+    padding: 1rem;
+    cursor: pointer;
+  }
+  .tab-active {
+    border-bottom: 2px solid var(--tab-border-color);
+    background-color: var(--tab-bg);
+  }
 }

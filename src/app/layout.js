@@ -15,7 +15,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-base-100 text-primary font-sans`}>
+      <body className={`${inter.className} bg-base-100 font-sans`}>
         <CartProvider>
           <Navbar />
           <div className="container min-h-screen">{children}</div>
