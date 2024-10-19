@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const ProductImage = ({ imageUrl, name }) => {
   return (
-    <figure className="w-full">
+    <figure>
       <Image
         src={imageUrl}
         alt={name}

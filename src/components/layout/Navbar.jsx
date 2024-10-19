@@ -11,7 +11,7 @@ const Navbar = () => {
   const { cartItems } = useContext(CartContext);
 
   return (
-    <div className="navbar bg-primary text-base-100">
+    <div className="navbar bg-primary text-base-100 p-3 md:p-6">
       {/* Navbar Start: Left-aligned Logo */}
       <div className="navbar-start flex-shrink-0 w-28 ml-3">
         <Logo />

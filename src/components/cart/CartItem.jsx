@@ -6,7 +6,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 const CartItem = ({ item, updateItemQuantity, removeItem, showImage }) => {
-  console.log(item.slug);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const modalRef = useRef(null);
 
@@ -36,9 +35,9 @@ const CartItem = ({ item, updateItemQuantity, removeItem, showImage }) => {
   };
 
   return (
-    <div className="mb-4 border-b pb-2">
+    <div className="mb-4 pb-2">
       {/* Flexbox container for medium devices and larger */}
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between md:gap-8">
         {/* Image column */}
         {showImage && (
           <div className="w-full md:w-1/3 mb-4 md:mb-0">
@@ -48,7 +47,7 @@ const CartItem = ({ item, updateItemQuantity, removeItem, showImage }) => {
                 alt={item.name}
                 width={150}
                 height={150}
-                className="w-full md:w-1/3 rounded-box shadow-md"
+                className="w-full rounded-box shadow-md"
                 objectFit="cover"
               />
             </Link>
@@ -59,14 +58,16 @@ const CartItem = ({ item, updateItemQuantity, removeItem, showImage }) => {
         <div className="w-full md:w-2/3 flex flex-col justify-between">
           <div className="flex flex-col">
             <Link href={`/shop/${item.slug}`} passHref>
-              <h2 className="font-semibold truncate">{item.name}</h2>
+              <h2 className="text-xl md:text-2xl lg:text-4xl md:py-4 font-bold text-primary truncate">
+                {item.name}
+              </h2>
             </Link>
             {item.variant?.variantName && (
-              <p className="text-sm text-gray-500">
+              <p className="text-md md:text-xl lg:text-2xl md:mb-2 text-primary font-semibold">
                 {item.variant.variantName}
               </p>
             )}
-            <p className="text-sm font-semibold">
+            <p className="text-md md:text-xl lg:text-2xl md:mb-2 font-semibold text-accent">
               ${(item.price * item.quantity).toFixed(2)}
             </p>
           </div>

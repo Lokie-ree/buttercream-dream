@@ -18,6 +18,7 @@ const AddToCartForm = ({ product, selectedVariant, onVariantChange }) => {
 
     const itemToAdd = {
       id: `${product.id}-${variantId}`,
+      slug: product.slug.current,
       name: product.name,
       price: selectedVariant.price || product.basePrice,
       imageUrl: product.imageUrl,
@@ -36,7 +37,7 @@ const AddToCartForm = ({ product, selectedVariant, onVariantChange }) => {
         <div className="mb-3">
           <label
             htmlFor="variant"
-            className="block mb-2 text-md md:text-lg text-primary font-semibold"
+            className="block mb-2 mt-1 text-md md:text-3xl md:mb-4 text-primary font-semibold"
           >
             Size
           </label>
@@ -52,7 +53,7 @@ const AddToCartForm = ({ product, selectedVariant, onVariantChange }) => {
       <div className="mb-5">
         <label
           htmlFor="quantity"
-          className="block mb-2 text-md md:text-lg text-primary font-semibold"
+          className="block mb-2 text-md md:text-3xl md:mb-4 text-primary font-semibold"
         >
           Quantity
         </label>
@@ -65,7 +66,7 @@ const AddToCartForm = ({ product, selectedVariant, onVariantChange }) => {
       {/* Add to Cart Buttons */}
       <button
         onClick={handleAddToCart}
-        className="btn btn-accent w-full text-base-100 hover:bg-neutral-focus transition durations-300 mb-6"
+        className="btn btn-accent w-full text-base-100 md:text-2xl md:mt-2 hover:bg-neutral-focus transition durations-300"
       >
         Add to Cart
       </button>

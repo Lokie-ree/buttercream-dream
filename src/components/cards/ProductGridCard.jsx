@@ -28,7 +28,7 @@ const ProductGridCard = ({ product }) => {
         {/* Price Overlay */}
         <div className="absolute top-0 left-0 w-full h-8 flex justify-center items-center bg-accent bg-opacity-70 sm:opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <p className="text-base-100 text-lg md:text-xl lg:text-2xl font-bold">
-            From ${lowestPrice.toFixed(2)}
+            Starting @ ${lowestPrice.toFixed(2)}
           </p>
         </div>
         <div className="card-body bg-base-100 flex flex-col justify-center rounded-b-xl">

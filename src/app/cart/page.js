@@ -15,19 +15,16 @@ export default function CartPage() {
     0
   );
 
-  console.log(cartItems);
-
   return (
-    <div className="container mx-auto p-6 md:p-12 min-h-screen bg-base-100">
-      <h1 className="text-xl md:text-4xl font-bold text-center text-accent mb-6 md:mb-10">
-        Your Cart
+    <div className="container min-h-screen mx-auto p-6 md:p-12 bg-base-100">
+      <h1 className="text-2xl md:text-4xl font-bold text-center text-accent mb-6 md:mb-10">
+        Your Shopping Cart
       </h1>
-
       {/* If cart is empty, show CartEmptyState */}
       {cartItems.length === 0 ? (
         <CartEmptyState />
       ) : (
-        <div className="flex flex-col lg:flex-row justify-between gap-6">
+        <div className="flex flex-col justify-between gap-6">
           {/* Cart Items Card */}
           <div className="flex-grow">
             {cartItems.map((item) => (
@@ -41,7 +38,7 @@ export default function CartPage() {
             ))}
           </div>
           {/* Cart Summary Card */}
-          <div className="lg:w-1/3">
+          <div className="w-full">
             <CartSummary subtotal={subtotal} />
           </div>
         </div>

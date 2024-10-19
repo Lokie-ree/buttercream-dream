@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
       <body className={`${inter.className} bg-base-100 font-sans`}>
         <CartProvider>
           <Navbar />
-          <div className="container min-h-screen">{children}</div>
+          <div className="min-h-screen max-w-screen-2xl">{children}</div>
         </CartProvider>
         <Toaster position="bottom-center" reverseOrder={false} />
         <Footer />

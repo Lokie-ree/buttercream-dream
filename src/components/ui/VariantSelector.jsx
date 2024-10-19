@@ -11,7 +11,7 @@ const VariantSelector = ({ variants, selectedVariant, onVariantChange }) => {
         );
         onVariantChange(variant);
       }}
-      className="select select-accent w-full"
+      className="select select-accent w-full md:text-xl"
     >
       <option disabled>Choose one</option>
       {variants.map((variant) => (

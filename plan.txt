@@ -1,6 +1,6 @@
 Short Term Enhancements
-  > Continue shopping option routing back to product listing
-  > Loading indicators and smooth transitions
+  > Loading indicators and ensure smooth transitions (loading.js in Next docs)
+    Codeevolution youtube playlist Next.js
 
 Mid Term Enhancements
   > Product variant selection in cart

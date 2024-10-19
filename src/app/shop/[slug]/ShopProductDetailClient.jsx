@@ -10,16 +10,15 @@ export default function ShopProductDetailClient({ product }) {
     product.variants?.[0] || null
   );
 
+  console.log({ ...product });
+
   const handleVariantChange = (variant) => {
     setSelectedVariant(variant);
   };
 
   return (
-    <div className="w-full min-h-screen max-w-4xl bg-base-100 pt-6 pl-6 pr-6 md:pt-12 mx-auto">
-      <h1 className="text-xl md:text-4xl font-bold text-accent mb-6 md:mb-10">
-        Product Details
-      </h1>
-      <div className="card 2xl:card-side bg-base-100 gap-8">
+    <div className="w-full min-h-screen max-w-screen-lg bg-base-100 p-6 md:pt-12 lg:pt-16 mx-auto">
+      <div className="card 2xl:card-side bg-base-100 gap-6">
         {/* Product Image */}
         <ProductImage imageUrl={product.imageUrl} name={product.name} />
         <div className="flex flex-col w-full">

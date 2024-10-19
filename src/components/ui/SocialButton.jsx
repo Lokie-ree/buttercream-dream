@@ -20,9 +20,9 @@ const SocialButton = ({
       rel="noopener noreferrer"
     >
       <button
-        className={`btn btn-circle btn-outline ${bgColor} ${textColor} ${hoverBgColor} ${hoverTextColor} ${focusBgColor} ${focusTextColor}`}
+        className={`btn btn-circle btn-sm md:btn-md lg:btn-lg ${bgColor} ${textColor} ${hoverBgColor} ${hoverTextColor} ${focusBgColor} ${focusTextColor}`}
       >
-        <Icon size={24} />
+        <Icon size={22} />
       </button>
     </Link>
   );
