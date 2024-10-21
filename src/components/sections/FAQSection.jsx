@@ -42,7 +42,7 @@ const FAQSection = () => {
           {/* Collapsible Category */}
           <div
             onClick={() => toggleCategory(categoryIndex)}
-            className={`collapse collapse-plus bg-primary text-base-100 rounded-box mb-1 transition-all duration-300 ease-in-out ${
+            className={`collapse collapse-plus bg-base-100 text-secondary border border-primary rounded-box mb-1 transition-all duration-300 ease-in-out ${
               openCategoryIndex === categoryIndex ? "collapse-open" : ""
             }`}
           >
@@ -57,7 +57,7 @@ const FAQSection = () => {
                     {/* Collapsible Question */}
                     <div
                       onClick={(e) => toggleQuestion(questionIndex, e)}
-                      className={`collapse collapse-arrow bg-base-100 text-secondary mb-1 transition-all duration-300 ease-in-out ${
+                      className={`collapse collapse-arrow bg-primary text-base-100 border border-accent mb-1 transition-all duration-300 ease-in-out ${
                         openQuestionIndex === questionIndex
                           ? "collapse-open"
                           : ""

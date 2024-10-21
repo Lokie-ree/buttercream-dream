@@ -17,7 +17,7 @@ const ProfileCard = () => {
             className="object-cover rounded-box"
           />
         </figure>
-        <div className="text-primary text-lg md:text-xl leading-relaxed">
+        <div className="text-secondary text-lg md:text-xl leading-relaxed">
           <p className="mb-4">
             Hello! I'm Britney Lovely, the face behind "I Dream of Buttercream."
             I've always had a passion for baking and have turned that passion

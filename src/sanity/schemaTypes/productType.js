@@ -29,6 +29,7 @@ export default {
           { title: "Pie", value: "pie" },
           { title: "Cookies", value: "cookies" },
           { title: "Cupcakes", value: "cupcakes" },
+          { title: "Brownies", value: "brownies" },
         ],
       },
       validation: (Rule) => Rule.required(),

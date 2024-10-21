@@ -1,7 +1,7 @@
 Short Term Enhancements
   > Loading indicators and ensure smooth transitions (loading.js in Next docs)
     Codeevolution youtube playlist Next.js
-
+  
 Mid Term Enhancements
   > Product variant selection in cart
   > Quick view modal on product listing page (product details, add to cart, etc.)
