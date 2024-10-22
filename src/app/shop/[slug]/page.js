@@ -3,9 +3,8 @@ import ShopProductDetailClient from "./ShopProductDetailClient";
 import { fetchProductsBySlug } from "@/sanity/lib/sanityClient";
 
 export default async function ShopProductDetail({ params }) {
-  const { slug } = params;
+  const { slug } = await params;
   const product = await fetchProductsBySlug(slug);
-  console.log(product);
 
   if (!product) {
     notFound();

@@ -41,6 +41,7 @@ export default function CartPage() {
           <div className="w-full">
             <CartSummary subtotal={subtotal} />
           </div>
+          {/* Link to Checkout */}
         </div>
       )}
     </div>
