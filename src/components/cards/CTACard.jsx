@@ -24,7 +24,7 @@ const CTACard = () => {
   };
 
   return (
-    <section className="w-full mx-auto bg-base-100 rounded-xl">
+    <section>
       <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-accent text-center">
         Get in Touch!
       </h2>

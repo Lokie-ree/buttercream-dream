@@ -32,7 +32,7 @@ const FAQSection = () => {
 
   return (
     <section>
-      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-accent text-center mb-4">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-accent text-center mb-4 md:mb-6">
         FAQs
       </h2>
 
@@ -46,7 +46,7 @@ const FAQSection = () => {
               openCategoryIndex === categoryIndex ? "collapse-open" : ""
             }`}
           >
-            <div className="collapse-title text-lg font-semibold">
+            <div className="collapse-title text-lg text-secondary font-semibold">
               {section.category}
             </div>
             {/* Questions in the category */}

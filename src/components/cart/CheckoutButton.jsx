@@ -1,13 +1,14 @@
 import React from "react";
-import Link from "next/link";
 
-const CheckoutButton = ({ disabled }) => {
+const CheckoutButton = ({ disabled, handleCheckout }) => {
   return (
-    <Link href="/checkout">
-      <button className="btn btn-primary w-full" disabled={disabled}>
-        Proceed to Checkout
-      </button>
-    </Link>
+    <button
+      className="btn btn-accent text-base-100 hover:bg-neutral hover:text-primary w-full"
+      onClick={handleCheckout}
+      disabled={disabled}
+    >
+      Proceed to Checkout
+    </button>
   );
 };
 

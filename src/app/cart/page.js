@@ -39,7 +39,7 @@ export default function CartPage() {
           </div>
           {/* Cart Summary Card */}
           <div className="w-full">
-            <CartSummary subtotal={subtotal} />
+            <CartSummary cartItems={cartItems} subtotal={subtotal} />
           </div>
           {/* Link to Checkout */}
         </div>

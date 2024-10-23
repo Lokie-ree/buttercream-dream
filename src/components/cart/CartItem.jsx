@@ -58,16 +58,16 @@ const CartItem = ({ item, updateItemQuantity, removeItem, showImage }) => {
         <div className="w-full md:w-2/3 flex flex-col justify-between">
           <div className="flex flex-col">
             <Link href={`/shop/${item.slug}`} passHref>
-              <h2 className="text-xl md:text-2xl lg:text-4xl md:py-4 font-bold text-primary truncate">
+              <h2 className="text-md md:text-2xl lg:text-4xl md:py-4 font-bold text-primary truncate">
                 {item.name}
               </h2>
             </Link>
             {item.variant?.variantName && (
-              <p className="text-md md:text-xl lg:text-2xl md:mb-2 text-primary font-semibold">
+              <p className="text-sm md:text-xl lg:text-2xl md:mb-2 text-primary font-semibold">
                 {item.variant.variantName}
               </p>
             )}
-            <p className="text-md md:text-xl lg:text-2xl md:mb-2 font-semibold text-accent">
+            <p className="text-sm md:text-xl lg:text-2xl md:mb-2 font-semibold text-accent">
               ${(item.price * item.quantity).toFixed(2)}
             </p>
           </div>

@@ -19,7 +19,7 @@ const GallerySection = () => {
 
   return (
     <section>
-      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-accent text-center mb-2">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-accent text-center mb-2 md:mb-6">
         Gallery
       </h2>
       <div className="card card-compact bg-base-100 w-full">
@@ -55,7 +55,7 @@ const GallerySection = () => {
             {galleryImages.map((_, index) => (
               <button
                 key={index}
-                className={`mx-1 my-1 w-3 h-3 rounded-full ${
+                className={`mx-1 mt-1 md:mx-2 md:mt-3 w-4 h-4 md:w-7 md:h-7 rounded-box ${
                   index === currentIndex ? "bg-accent" : "bg-neutral"
                 }`}
                 onClick={() => setCurrentIndex(index)}

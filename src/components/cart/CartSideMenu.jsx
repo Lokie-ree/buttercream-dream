@@ -46,7 +46,7 @@ const CartSideMenu = ({ isOpen, toggleCart }) => {
               ))}
             </div>
             {/* Cart Summary */}
-            <CartSummary subtotal={subtotal} />
+            <CartSummary cartItems={cartItems} subtotal={subtotal} />
           </>
         ) : (
           <p>Your cart is empty.</p>

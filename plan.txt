@@ -1,6 +1,9 @@
-Short Term Enhancements
-  > Loading indicators and ensure smooth transitions (loading.js in Next docs)
-    Codeevolution youtube playlist Next.js
+Final Touches
+  > Add tax calculation
+  > Enable email confirmation
+  > Implement shipping options
+
+*** Final Testing ***
   
 Mid Term Enhancements
   > Product variant selection in cart
