@@ -27,7 +27,7 @@ const CartSideMenu = ({ isOpen, toggleCart }) => {
         onClick={toggleCart}
       ></div>
       {/* Side Menu */}
-      <div className="w-96 bg-base-100 text-primary p-4 relative flex flex-col">
+      <div className="w-96 bg-base-100 text-primary p-4 relative flex flex-col border border-primary rounded-box">
         {/* Cart Header */}
         <CartHeader toggleCart={toggleCart} />
 

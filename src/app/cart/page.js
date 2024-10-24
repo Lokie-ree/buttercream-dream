@@ -16,7 +16,7 @@ export default function CartPage() {
   );
 
   return (
-    <div className="container min-h-screen mx-auto p-6 md:p-12 bg-base-100">
+    <div className="min-h-screen flex flex-col mx-auto p-6 md:p-12 bg-base-100">
       <h1 className="text-2xl md:text-4xl font-bold text-center text-accent mb-6 md:mb-10">
         Your Shopping Cart
       </h1>

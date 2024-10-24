@@ -6,12 +6,10 @@ const CartSummary = ({ cartItems, subtotal }) => {
 
   const handleCheckout = async () => {
     if (cartItems.length === 0) {
-      console.error("No items in the cart.");
       return;
     }
 
     try {
-      console.log("Cart Items:", cartItems); // Log cartItems to check its content
       const response = await fetch("/api/create-checkout-session", {
         method: "POST",
         headers: {
@@ -38,10 +36,12 @@ const CartSummary = ({ cartItems, subtotal }) => {
   };
 
   return (
-    <div className="p-4 bg-base-200 rounded-lg shadow-lg">
-      <h3 className="text-lg font-bold text-primary">Cart Summary</h3>
+    <div className="p-4 md:p-0 bg-base-200 rounded-lg text-center">
+      <h3 className="text-lg md:text-2xl font-bold text-primary">
+        Cart Summary
+      </h3>
       <div className="mt-2">
-        <p className="text-sm text-secondary">
+        <p className="text-sm md:text-lg font-semibold text-secondary">
           Subtotal:{" "}
           <span className="font-semibold">${subtotal.toFixed(2)}</span>
         </p>
@@ -50,6 +50,7 @@ const CartSummary = ({ cartItems, subtotal }) => {
         <CheckoutButton
           disabled={isCartEmpty}
           handleCheckout={handleCheckout}
+          className="md:text-xl md:w-auto"
         />
       </div>
     </div>
