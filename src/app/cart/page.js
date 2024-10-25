@@ -16,12 +16,12 @@ export default function CartPage() {
   );
 
   return (
-    <div className="min-h-screen flex flex-col mx-auto p-6 md:p-14 bg-base-100">
+    <div className="min-h-screen flex flex-col mx-auto items-center p-6 md:p-14 bg-base-100">
       {/* If cart is empty, show CartEmptyState */}
       {cartItems.length === 0 ? (
         <CartEmptyState />
       ) : (
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-4 md:gap-8 max-w-screen-lg">
           {/* Cart Items Card */}
           {cartItems.map((item) => (
             <CartItem

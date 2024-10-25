@@ -23,11 +23,11 @@ const CartSideMenu = ({ isOpen, toggleCart }) => {
     >
       {/* Overlay */}
       <div
-        className="w-full h-full bg-black opacity-50"
+        className="w-2/3 md:w-full h-full bg-black opacity-50"
         onClick={toggleCart}
       ></div>
       {/* Side Menu */}
-      <div className="w-full sm:w-96 md:w-[500px] lg:w-[600px] xl:w-[800px] bg-base-100 text-primary p-4 relative flex flex-col border border-primary rounded-box">
+      <div className="w-2/3 md:w-[500px] lg:w-[600px] xl:w-[800px] bg-base-100 text-primary p-4 relative flex flex-col border border-primary rounded-box">
         {/* Cart Header */}
         <CartHeader toggleCart={toggleCart} />
 
@@ -49,7 +49,7 @@ const CartSideMenu = ({ isOpen, toggleCart }) => {
             <CartSummary cartItems={cartItems} subtotal={subtotal} />
           </>
         ) : (
-          <p>Your cart is empty.</p>
+          <p className="text-center">Your cart is empty.</p>
         )}
       </div>
     </div>

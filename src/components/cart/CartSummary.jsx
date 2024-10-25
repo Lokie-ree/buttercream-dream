@@ -35,7 +35,7 @@ const CartSummary = ({ cartItems, subtotal }) => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center p-4 md:p-0 bg-base-200 rounded-lg">
+    <div className="flex flex-col p-4 md:p-0 bg-base-200 rounded-lg">
       <h3 className="text-lg md:text-2xl font-bold text-primary">
         Cart Summary
       </h3>

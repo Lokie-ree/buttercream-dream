@@ -46,7 +46,7 @@ export default function SuccessPage() {
   // Confetti trigger useEffect
   useEffect(() => {
     const sprinkleConfetti = () => {
-      const end = Date.now() + 3 * 1000;
+      const end = Date.now() + 2 * 1000;
       const colors = [
         "#F5E607",
         "#C31886",
@@ -58,20 +58,24 @@ export default function SuccessPage() {
 
       (function frame() {
         confetti({
-          particleCount: 5,
+          particleCount: 4,
           angle: 60,
-          spread: 55,
+          spread: 70,
           origin: { x: 0 },
           colors: colors,
-          scalar: 0.9,
+          shapes: ["square"],
+          scalar: 0.6,
+          gravity: 1,
         });
         confetti({
-          particleCount: 5,
+          particleCount: 4,
           angle: 120,
-          spread: 55,
+          spread: 70,
           origin: { x: 1 },
           colors: colors,
-          scalar: 0.9,
+          shapes: ["square"],
+          scalar: 0.6,
+          gravity: 1,
         });
 
         if (Date.now() < end) {

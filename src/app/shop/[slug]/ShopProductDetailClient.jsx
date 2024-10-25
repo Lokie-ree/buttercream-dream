@@ -15,8 +15,8 @@ export default function ShopProductDetailClient({ product }) {
   };
 
   return (
-    <div className="w-full min-h-screen max-w-screen-lg bg-base-100 p-6 md:p-14 mx-auto">
-      <div className="card 2xl:card-side bg-base-100 gap-6">
+    <div className="w-full min-h-screen max-w-screen-xl bg-base-100 p-6 md:p-14 mx-auto">
+      <div className="card bg-base-100 gap-6">
         {/* Product Image */}
         <ProductImage imageUrl={product.imageUrl} name={product.name} />
         <div className="flex flex-col w-full">
