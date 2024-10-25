@@ -7,7 +7,7 @@ import HeroImage from "./HeroImage";
 const Hero = () => {
   return (
     <div className="hero min-h-screen">
-      <div className="hero-content flex-col lg:flex-row gap-12 md:gap-6">
+      <div className="hero-content flex-col md:flex-row gap-12 md:gap-6">
         {/* Text Section */}
         <div className="flex flex-col w-full md:w-1/2">
           <HeroHeading />

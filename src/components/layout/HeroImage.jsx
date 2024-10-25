@@ -10,7 +10,6 @@ const HeroImage = () => {
         alt="Artistic logo of the business"
         width={512}
         height={512}
-        layout="responsive"
       />
     </div>
   );

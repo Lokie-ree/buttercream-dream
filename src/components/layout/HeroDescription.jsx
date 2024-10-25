@@ -4,7 +4,9 @@ const HeroDescription = () => {
   return (
     <p className="font-thin mt-4 mb-6 text-md">
       At{" "}
-      <span className="font-semibold text-primary">I Dream of Buttercream</span>
+      <span className="font-semibold text-secondary">
+        I Dream of Buttercream
+      </span>
       , we believe every celebration deserves a cake as unique as the occasion.
       Our handcrafted creations blend the finest ingredients with artistic
       flair, ensuring that every bite is a sweet escape into a world of flavor

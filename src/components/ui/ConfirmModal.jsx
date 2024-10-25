@@ -13,18 +13,21 @@ const ConfirmModal = forwardRef(({ id, message, onConfirm, onCancel }, ref) => {
           Confirm Action
         </h3>
         <p className="py-4 text-secondary">{message}</p>
-        <div className="modal-action justify-center gap-8">
-          <button className="btn btn-accent text-base-100" onClick={onConfirm}>
-            Confirm
-          </button>
+        <div className="modal-action justify-center gap-4">
           <button
-            className="btn"
+            className="btn btn-accent text-base-100 hover:bg-neutral hover:text-primary"
             onClick={() => {
               if (ref.current) ref.current.close();
               if (onCancel) onCancel();
             }}
           >
             Cancel
+          </button>
+          <button
+            className="btn btn-accent text-base-100 hover:bg-neutral hover:text-primary"
+            onClick={onConfirm}
+          >
+            Confirm
           </button>
         </div>
       </div>

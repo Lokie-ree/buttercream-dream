@@ -35,7 +35,7 @@ const ProductGridCard = ({ product }) => {
           <h2 className="card-title text-base text-primary justify-center">
             {product.name || "Unnamed Product"}
           </h2>
-          <button className="btn btn-block bg-accent text-base-100 hover:text-accent hover:bg-neutral">
+          <button className="btn btn-block bg-accent text-base-100 hover:text-primary hover:bg-neutral">
             Details
           </button>
         </div>

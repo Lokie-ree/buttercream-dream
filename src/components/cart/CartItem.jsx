@@ -35,51 +35,47 @@ const CartItem = ({ item, updateItemQuantity, removeItem, showImage }) => {
   };
 
   return (
-    <div className="p-2">
-      {/* Flexbox container for medium devices and larger */}
-      <div className="flex flex-col md:flex-row md:items-center md:justify-center md:gap-8">
-        {/* Image column */}
+    <div className="card card-compact w-full bg-base-100 rounded-xl group relative overflow-hidden">
+      <div className="flex flex-col md:flex-row w-full p-4 md:p-6">
+        {/* Image Column */}
         {showImage && (
-          <div className="w-full md:max-w-lg md:w-1/2 mb-4 md:mb-0">
+          <figure className="w-full md:w-1/3 rounded-xl overflow-hidden">
             <Link href={`/shop/${item.slug}`} passHref>
               <Image
-                src={item.imageUrl}
+                src={item.imageUrl || "placeholder.svg?height=400&width=400"}
                 alt={item.name}
                 width={150}
                 height={150}
-                className="w-full rounded-box shadow-md"
-                objectFit="cover"
+                className="object-cover w-full h-52 md:h-auto rounded-box"
               />
             </Link>
-          </div>
+          </figure>
         )}
 
-        {/* Product info, quantity selector, and trash icon in second column */}
-        <div className="w-full md:w-1/2 flex flex-col">
-          <div className="flex flex-col md:gap-2">
+        {/* Product Info and Actions */}
+        <div className="w-full md:w-2/3 flex flex-col justify-between p-4 md:p-6">
+          <div>
             <Link href={`/shop/${item.slug}`} passHref>
-              <h2 className="text-md md:text-xl lg:text-4xl md:py-1 font-bold text-primary truncate">
-                {item.name}
-              </h2>
+              <h2 className="text-lg font-bold text-primary">{item.name}</h2>
             </Link>
             {item.variant?.variantName && (
-              <p className="text-sm md:text-lg lg:text-2xl md:mb-1 text-primary font-semibold">
+              <p className="text-sm text-secondary">
                 {item.variant.variantName}
               </p>
             )}
-            <p className="text-sm md:text-xl lg:text-2xl md:mb-1 font-semibold text-accent">
+            <p className="text-md font-semibold text-accent">
               ${(item.price * item.quantity).toFixed(2)}
             </p>
           </div>
 
-          {/* Quantity selector and trash icon */}
-          <div className="flex md:gap-6 items-center mt-2">
+          {/* Quantity Selector and Remove Button */}
+          <div className="flex items-center justify-between mt-4 gap-2">
             <QuantitySelector
               quantity={item.quantity}
               onQuantityChange={(newQuantity) =>
                 updateItemQuantity(item.id, newQuantity)
               }
-              className="w-full h-8 text-sm text-center"
+              className="w-full"
             />
             <button
               onClick={handleRemoveClick}
@@ -101,7 +97,7 @@ const CartItem = ({ item, updateItemQuantity, removeItem, showImage }) => {
         ref={modalRef}
         message={`Are you sure you want to remove ${item.name} from your cart?`}
         onConfirm={handleConfirmRemoval}
-        onCancel={handleCancelRemoval} // This will handle ESC and other close events
+        onCancel={handleCancelRemoval}
       />
     </div>
   );

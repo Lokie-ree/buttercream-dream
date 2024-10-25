@@ -3,18 +3,18 @@ import Image from "next/image";
 
 const ProfileCard = () => {
   return (
-    <section>
-      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-accent text-center mb-4 md:mb-8">
-        About Me
-      </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+    <section className="card card-compact w-full bg-base-100 shadow-xl rounded-xl p-2">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-accent text-center mt-2 mb-4 md:mb-8">
+        Meet the Owner
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center ">
         <figure className="w-full lg:w-auto flex justify-center">
           <Image
             src="/assets/blovely_photo2.jpg"
             alt="Photo of Britney Lovely, owner of I Dream of Buttercream"
             width={400}
             height={400}
-            className="object-cover rounded-box"
+            className="object-cover w-full h-full md:h-auto rounded-box"
           />
         </figure>
         <div className="text-secondary text-md md:text-lg lg:text-xl leading-relaxed mt-2">
@@ -26,10 +26,7 @@ const ProfileCard = () => {
           </p>
           <p className="mb-4">
             Whether it's a birthday, wedding, or any special occasion, I'm here
-            to make your celebration sweeter. Baking is not just my profession
-            but my way of bringing joy to people's lives. Each creation is
-            unique and crafted to perfection, reflecting the joy and celebration
-            in your life.
+            to make your celebration sweeter.
           </p>
         </div>
       </div>

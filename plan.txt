@@ -1,8 +1,6 @@
 Final Touches
   > Enable email confirmation (customer_email not being collected)
-  > Make sure Cancel page renders correctly
   > Implement shipping options
-  > Call clearCart() after successful purchase
   > Check CartSideMenu on larger devices
 
 *** Final Testing ***

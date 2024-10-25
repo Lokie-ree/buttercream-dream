@@ -16,32 +16,24 @@ export default function CartPage() {
   );
 
   return (
-    <div className="min-h-screen flex flex-col mx-auto p-6 md:p-12 bg-base-100">
-      <h1 className="text-2xl md:text-4xl font-bold text-center text-accent mb-6 md:mb-10">
-        Your Shopping Cart
-      </h1>
+    <div className="min-h-screen flex flex-col mx-auto p-6 md:p-14 bg-base-100">
       {/* If cart is empty, show CartEmptyState */}
       {cartItems.length === 0 ? (
         <CartEmptyState />
       ) : (
-        <div className="flex flex-col justify-between gap-6">
+        <div className="flex flex-col gap-6">
           {/* Cart Items Card */}
-          <div className="flex-grow">
-            {cartItems.map((item) => (
-              <CartItem
-                key={item.id}
-                item={item}
-                updateItemQuantity={updateItemQuantity}
-                removeItem={removeItemFromCart}
-                showImage={true}
-              />
-            ))}
-          </div>
+          {cartItems.map((item) => (
+            <CartItem
+              key={item.id}
+              item={item}
+              updateItemQuantity={updateItemQuantity}
+              removeItem={removeItemFromCart}
+              showImage={true}
+            />
+          ))}
           {/* Cart Summary Card */}
-          <div className="w-full">
-            <CartSummary cartItems={cartItems} subtotal={subtotal} />
-          </div>
-          {/* Link to Checkout */}
+          <CartSummary cartItems={cartItems} subtotal={subtotal} />
         </div>
       )}
     </div>

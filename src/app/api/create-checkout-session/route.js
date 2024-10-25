@@ -27,24 +27,16 @@ export async function POST(req) {
       mode: "payment",
       success_url: `${process.env.NEXT_PUBLIC_DOMAIN}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.NEXT_PUBLIC_DOMAIN}/cancel`,
-
-      // Enable shipping address collection
       shipping_address_collection: {
-        allowed_countries: ["US"], // You can add more countries here if needed
+        allowed_countries: ["US"],
       },
-
-      // Enable billing address collection
-      billing_address_collection: "auto", // Make sure this is correctly spelled and in quotes
+      billing_address_collection: "auto",
     });
 
-    console.log("Checkout session created successfully:", session);
-
-    // Return the session URL as JSON
     return NextResponse.json({ url: session.url });
   } catch (error) {
     console.error("Error creating checkout session:", error.message);
 
-    // Return an error response
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
