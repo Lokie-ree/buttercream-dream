@@ -1,9 +1,9 @@
 "use client";
 
 import { IoMdPrint } from "react-icons/io";
-// import confetti from "canvas-confetti";
+import confetti from "canvas-confetti";
 import Link from "next/link";
-// import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 // This is a server component in the App Router
 export default function SuccessPage({ searchParams }) {
