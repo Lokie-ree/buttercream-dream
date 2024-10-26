@@ -7,11 +7,11 @@ const MobileMenuModal = ({ isOpen, toggleMenu }) => {
 
   return (
     <div
-      className={`fixed inset-0 z-50 bg-accent bg-opacity-90 text-base-100 flex justify-center transition-opacity duration-300 ${
+      className={`fixed inset-0 z-50 bg-accent rounded-box bg-opacity-90 text-base-100 flex justify-center transition-opacity duration-300 ${
         isOpen ? "opacity-100" : "opacity-0"
       }`}
     >
-      <div className="relative w-full h-40 max-w-md mx-auto transition-transform duration-300 transform rounded-lg bg-primary shadow-lg">
+      <div className="relative w-full h-40 max-w-md mx-auto transition-transform duration-300 transform bg-primary shadow-lg">
         {/* Close Button */}
         <button
           className="absolute top-6 right-6"
@@ -24,7 +24,7 @@ const MobileMenuModal = ({ isOpen, toggleMenu }) => {
           />
         </button>
         {/* Menu Items */}
-        <ul className="flex flex-col space-y-6 p-4 bg-primary text-center text-xl rounded-b-lg">
+        <ul className="flex flex-col space-y-4 p-4 bg-primary text-center text-xl rounded-b-lg">
           <MenuItems closeMenu={toggleMenu} />
         </ul>
       </div>

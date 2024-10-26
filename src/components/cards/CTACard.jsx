@@ -36,14 +36,14 @@ const CTACard = () => {
         <div className="card-actions flex flex-col gap-4 justify-center">
           {/* Button to open Contact Form Modal */}
           <button
-            className="btn btn-primary text-base-100 hover:bg-neutral hover:text-primary w-full"
+            className="btn btn-accent text-base-100 hover:bg-neutral hover:text-primary w-full"
             onClick={openContactForm}
           >
             Contact Me
           </button>
           {/* Button to open Custom Order Form Modal */}
           <button
-            className="btn btn-primary text-base-100 hover:bg-neutral hover:text-primary w-full"
+            className="btn btn-accent text-base-100 hover:bg-neutral hover:text-primary w-full"
             onClick={openCustomOrderForm}
           >
             Request Custom Order

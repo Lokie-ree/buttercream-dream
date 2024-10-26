@@ -1,49 +1,41 @@
 "use client";
 
-import { useEffect, useState, useContext } from "react";
-import { CartContext } from "@/components/context/CartContext";
-import { useSearchParams } from "next/navigation";
+import { IoMdPrint } from "react-icons/io";
 import confetti from "canvas-confetti";
 import Link from "next/link";
+import { useEffect } from "react";
 
-export default function SuccessPage() {
-  const searchParams = useSearchParams();
-  const sessionId = searchParams.get("session_id");
-  const [sessionData, setSessionData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null); // Add error state
+// This is a server component in the App Router
+export default async function SuccessPage({ searchParams }) {
+  const sessionId = searchParams.session_id;
 
-  const { clearCart } = useContext(CartContext);
+  // Fetch session data from Stripe
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_DOMAIN}/api/get-checkout-session?session_id=${sessionId}`
+  );
+  const sessionData = await response.json();
 
-  useEffect(() => {
-    const fetchSessionData = async () => {
-      // Fetch data if sessionId exists and sessionData is null
-      if (sessionId && !sessionData) {
-        try {
-          const response = await fetch(
-            `/api/get-checkout-session?session_id=${sessionId}`
-          );
-          const data = await response.json();
+  if (!response.ok) {
+    return (
+      <div className="container mx-auto min-h-screen p-6">
+        <div className="max-w-xl mx-auto bg-base-100 shadow-lg rounded-lg p-8 text-center">
+          <h1 className="text-3xl font-bold text-red-600 mb-6">Error</h1>
+          <p className="text-lg text-secondary mb-4">
+            Payment was not completed or an error occurred.
+          </p>
+          <Link href="/shop">
+            <button className="btn btn-accent w-full">Return to Shop</button>
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
-          if (response.status !== 200) {
-            setError(data.error || "Payment was not completed.");
-          } else {
-            setSessionData(data);
-            clearCart(); // Clear the cart once payment is successful
-          }
-        } catch (err) {
-          console.error("Error fetching session data: ", err);
-          setError("Something went wrong.");
-        } finally {
-          setLoading(false); // Stop loading after data fetch
-        }
-      }
-    };
+  const customerEmail = sessionData.customer_details?.email;
+  const amountTotal = (sessionData.amount_total / 100).toFixed(2);
+  const lineItems = sessionData.line_items?.data || [];
+  const shippingAddress = sessionData.shipping?.address;
 
-    fetchSessionData();
-  }, [sessionId, sessionData, clearCart]);
-
-  // Confetti trigger useEffect
   useEffect(() => {
     const sprinkleConfetti = () => {
       const end = Date.now() + 2 * 1000;
@@ -84,75 +76,60 @@ export default function SuccessPage() {
       })();
     };
 
-    if (!error && sessionData) {
+    if (sessionData) {
       sprinkleConfetti();
     }
-  }, [error, sessionData]); // Confetti runs only if no error and session data exists
-
-  // Loading state
-  if (loading) {
-    return (
-      <div className="container mx-auto min-h-screen p-6">
-        <div className="max-w-xl mx-auto bg-base-100 shadow-lg rounded-lg p-8">
-          <div className="animate-pulse space-y-4">
-            <div className="h-8 bg-accent rounded-box w-3/4"></div>
-            <div className="h-6 bg-accent rounded-box w-5/6"></div>
-            <div className="h-4 bg-accent rounded-box w-2/3"></div>
-            <div className="h-8 bg-accent rounded-box w-1/2"></div>
-            <div className="h-4 bg-accent rounded-box w-3/4"></div>
-            <div className="h-6 bg-accent rounded-box w-5/6"></div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  // Error state
-  if (error) {
-    return (
-      <div className="container mx-auto min-h-screen p-6">
-        <div className="max-w-xl mx-auto bg-base-100 shadow-lg rounded-lg p-8 text-center">
-          <h1 className="text-3xl font-bold text-red-600 mb-6">Error</h1>
-          <p className="text-lg text-secondary mb-4">{error}</p>
-          <Link href="/shop">
-            <button className="btn btn-accent w-full">Return to Shop</button>
-          </Link>
-        </div>
-      </div>
-    );
-  }
-
-  // Extract the relevant data from the session object
-  const customerEmail = sessionData.customer_details?.email;
-  const amountTotal = (sessionData.amount_total / 100).toFixed(2);
-  const lineItems = sessionData.line_items?.data || [];
+  }, [sessionData]);
 
   return (
     <div className="container mx-auto min-h-screen p-6">
-      <div className="max-w-xl mx-auto bg-base-100 shadow-lg rounded-lg p-8">
-        <h1 className="text-3xl font-bold text-accent mb-6">
+      <div className="max-w-3xl mx-auto bg-base-100 shadow-lg rounded-lg p-8">
+        <h1 className="text-2xl md:text-3xl font-bold text-accent mb-6">
           Payment Successful!
         </h1>
-        <p className="text-lg text-secondary mb-4">
-          Thank you for your purchase.
+        <p className="text-md md:text-lg text-secondary mb-4">
+          Thank you for your purchase. Your order number is{" "}
+          <strong>{sessionData.id.slice(-8).toUpperCase()}</strong>. A receipt
+          has been emailed to <strong>{customerEmail}</strong>.
         </p>
 
-        {customerEmail && (
-          <p className="text-md text-secondary mb-4">
-            A receipt has been sent to <strong>{customerEmail}</strong>
-          </p>
-        )}
         <div className="divider divider-primary"></div>
-        <h2 className="text-xl font-semibold text-accent mb-2">
-          Order Summary
-        </h2>
-        <p className="text-md text-secondary mb-2">
-          Total Paid: <strong>${amountTotal}</strong>
-        </p>
+        <div className="flex justify-between items-center">
+          <div>
+            <h2 className="text-xl md:text-2xl font-semibold text-accent mb-2">
+              Order Summary
+            </h2>
+            <p className="text-md md:text-lg text-secondary mb-2">
+              Total Paid: <strong>${amountTotal}</strong>
+            </p>
+          </div>
+          <div className="flex items-end">
+            <button
+              className="btn btn-md btn-accent text-base-100 hover:bg-neutral hover:text-primary ml-auto"
+              onClick={() => window.print()}
+            >
+              <IoMdPrint size={22} />
+            </button>
+          </div>
+        </div>
+
+        {shippingAddress && (
+          <div className="mb-4">
+            <h3 className="text-lg md:text-xl font-semibold text-accent mb-2">
+              Shipping Address
+            </h3>
+            <p className="text-md md:text-lg text-secondary">
+              {shippingAddress.line1}, {shippingAddress.city},{" "}
+              {shippingAddress.state} {shippingAddress.postal_code},{" "}
+              {shippingAddress.country}
+            </p>
+          </div>
+        )}
+
         <div className="divider divider-primary"></div>
 
         <div className="mb-4">
-          <h3 className="text-lg font-semibold text-accent mb-2">
+          <h3 className="text-lg md:text-xl font-semibold text-accent mb-2">
             Purchased Items
           </h3>
           <div className="overflow-x-auto">
@@ -177,38 +154,19 @@ export default function SuccessPage() {
               </tbody>
             </table>
           </div>
-
-          <div className="md:hidden">
-            {lineItems.map((item, index) => (
-              <div
-                key={index}
-                className="border border-accent rounded-box p-3 mb-2"
-              >
-                <p className="text-secondary font-semibold">
-                  {item.description}
-                </p>
-                <p className="text-sm text-secondary">
-                  Quantity: {item.quantity}
-                </p>
-                <p className="text-sm text-secondary">
-                  Price: ${(item.amount_total / 100).toFixed(2)}
-                </p>
-              </div>
-            ))}
-          </div>
         </div>
 
         <p className="text-md text-secondary mb-6">
           If you have any questions, please contact me at{" "}
           <strong>blee73011@gmail.com</strong>
         </p>
+        <div className="divider divider-primary"></div>
         <div className="flex flex-col justify-center gap-3">
           <Link href="/shop">
             <button className="btn btn-accent text-base-100 hover:bg-neutral hover:text-primary w-full">
               Continue Shopping
             </button>
           </Link>
-
           <Link href="/">
             <button className="btn btn-accent text-base-100 hover:bg-neutral hover:text-primary w-full">
               Return Home
