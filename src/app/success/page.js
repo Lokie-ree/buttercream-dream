@@ -3,11 +3,47 @@
 import { IoMdPrint } from "react-icons/io";
 import confetti from "canvas-confetti";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { useSearchParams } from "next/navigation";
+import { CartContext } from "@/components/context/CartContext";
+
+export const dynamic = "force-dynamic";
 
 // This is a server component in the App Router
-export default function SuccessPage({ searchParams }) {
+export default function SuccessPage() {
   const [sessionData, setSessionData] = useState(null);
+  const [cartCleared, setCartCleared] = useState(false);
+  const searchParams = useSearchParams();
+  const sessionId = searchParams.get("session_id");
+  const { clearCart } = useContext(CartContext);
+
+  useEffect(() => {
+    const fetchSessionData = async () => {
+      try {
+        console.log("Session ID from URL: ", sessionId);
+
+        if (!sessionId) return;
+
+        // Fetch session data from Stripe
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_DOMAIN}/api/get-checkout-session?session_id=${sessionId}`
+        );
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch session data");
+        }
+
+        const data = await response.json();
+        setSessionData(data);
+        console.log("Session data: ", data);
+      } catch (error) {
+        console.error("Error fetching session data: ", error.message);
+        console.log(error);
+      }
+    };
+
+    fetchSessionData();
+  }, [sessionId]);
 
   useEffect(() => {
     const sprinkleConfetti = () => {
@@ -49,28 +85,12 @@ export default function SuccessPage({ searchParams }) {
       })();
     };
 
-    if (sessionData) {
+    if (sessionData && !cartCleared) {
+      clearCart();
+      setCartCleared(true);
       sprinkleConfetti();
     }
-  }, [sessionData]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const sessionId = searchParams.session_id;
-
-        // Fetch session data from Stripe
-        const response = await fetch(
-          `${process.env.NEXT_PUBLIC_DOMAIN}/api/get-checkout-session?session_id=${sessionId}`
-        );
-        const data = await response.json();
-        setSessionData(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchData();
-  }, []);
+  }, [sessionData, clearCart, cartCleared]);
 
   const customerEmail = sessionData?.customer_details?.email;
   const amountTotal = (sessionData?.amount_total / 100).toFixed(2);
@@ -87,8 +107,8 @@ export default function SuccessPage({ searchParams }) {
             </h1>
             <p className="text-md md:text-lg text-secondary mb-4">
               Thank you for your purchase. Your order number is{" "}
-              <strong>{sessionData.id.slice(-8).toUpperCase()}</strong>. A
-              receipt has been emailed to <strong>{customerEmail}</strong>.
+              <strong>{sessionData.id.slice(-8)}</strong>. A receipt has been
+              emailed to <strong>{customerEmail}</strong>.
             </p>
 
             <div className="divider divider-primary"></div>

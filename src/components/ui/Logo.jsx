@@ -11,6 +11,7 @@ const Logo = () => {
         height={64}
         width={64}
         className="mask mask-squircle shadow-lg"
+        priority
       />
     </Link>
   );
