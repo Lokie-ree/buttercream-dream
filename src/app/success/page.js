@@ -72,20 +72,6 @@ export default function SuccessPage({ searchParams }) {
     fetchData();
   }, []);
 
-  return (
-    <div className="container mx-auto min-h-screen p-6">
-      <div className="max-w-xl mx-auto bg-base-100 shadow-lg rounded-lg p-8 text-center">
-        <h1 className="text-3xl font-bold text-red-600 mb-6">Error</h1>
-        <p className="text-lg text-secondary mb-4">
-          Payment was not completed or an error occurred.
-        </p>
-        <Link href="/shop">
-          <button className="btn btn-accent w-full">Return to Shop</button>
-        </Link>
-      </div>
-    </div>
-  );
-
   const customerEmail = sessionData?.customer_details?.email;
   const amountTotal = (sessionData?.amount_total / 100).toFixed(2);
   const lineItems = sessionData?.line_items?.data || [];
