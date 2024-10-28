@@ -20,7 +20,11 @@ const CartIcon = () => {
 
   return (
     <>
-      <button onClick={toggleCart} className="btn btn-ghost btn-circle">
+      <button
+        onClick={toggleCart}
+        aria-label="Cart Icon"
+        className="btn btn-ghost btn-circle"
+      >
         <div className="indicator">
           <IoCartOutline
             size={24}

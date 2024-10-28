@@ -3,7 +3,6 @@
 import React from "react";
 
 const QuantitySelector = ({ quantity, onQuantityChange, className = "" }) => {
-  console.log("onQuantityChange:", onQuantityChange); // Add this to debug
   const quantities = Array.from({ length: 10 }, (_, index) => index + 1);
 
   return (
