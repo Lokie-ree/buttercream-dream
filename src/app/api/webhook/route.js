@@ -12,7 +12,7 @@ export const config = {
 };
 
 export async function POST(req) {
-  const sig = req.headers.get["stripe-signature"];
+  const sig = req.headers["stripe-signature"];
 
   let event;
 
