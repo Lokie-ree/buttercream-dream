@@ -8,7 +8,7 @@ const HeroCTA = () => {
     <div className="flex flex-row gap-4">
       <Link
         href="/shop"
-        className="btn btn-primary text-base-100 hover:text-primary hover:bg-neutral focus:outline-none"
+        className="btn btn-accent text-base-100 hover:text-primary hover:bg-neutral focus:outline-none"
         aria-label="View Cakes"
       >
         <FaBirthdayCake className="text-xl" />

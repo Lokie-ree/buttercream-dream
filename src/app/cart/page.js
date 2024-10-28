@@ -16,12 +16,12 @@ export default function CartPage() {
   );
 
   return (
-    <div className="min-h-screen flex flex-col mx-auto items-center p-6 md:p-14 bg-base-100">
+    <div className="w-full flex flex-col min-h-screen max-w-screen-2xl bg-base-100 p-6 md:p-14 mx-auto">
       {/* If cart is empty, show CartEmptyState */}
       {cartItems.length === 0 ? (
         <CartEmptyState />
       ) : (
-        <div className="flex flex-col gap-4 md:gap-8 max-w-screen-lg">
+        <div className="flex flex-col gap-2 md:gap-6">
           {/* Cart Items Card */}
           {cartItems.map((item) => (
             <CartItem
@@ -33,7 +33,9 @@ export default function CartPage() {
             />
           ))}
           {/* Cart Summary Card */}
-          <CartSummary cartItems={cartItems} subtotal={subtotal} />
+          <div className="flex justify-center">
+            <CartSummary cartItems={cartItems} subtotal={subtotal} />
+          </div>
         </div>
       )}
     </div>

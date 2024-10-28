@@ -35,23 +35,23 @@ const CartSummary = ({ cartItems, subtotal }) => {
   };
 
   return (
-    <div className="flex flex-col p-4 md:p-0 bg-base-200 rounded-lg">
-      <h3 className="text-lg md:text-2xl font-bold text-primary">
-        Cart Summary
-      </h3>
-      <div className="mt-2">
+    <div className="card card-compact bg-base-100 w-full max-w-xl shadow-xl p-2 mt-4">
+      <div className="card-body">
+        <h2 className=" card-title text-lg md:text-2xl font-bold text-primary">
+          Cart Summary
+        </h2>
         <p className="text-sm md:text-lg font-semibold text-secondary">
           Subtotal:{" "}
           <span className="font-semibold">${subtotal.toFixed(2)}</span>
         </p>
-      </div>
-      <div className="mt-4">
-        <button
-          className="btn btn-accent text-base-100 hover:bg-neutral hover:text-primary w-full"
-          onClick={handleCheckout}
-        >
-          Checkout
-        </button>
+        <div className="card-actions">
+          <button
+            className="btn btn-accent text-base-100 hover:bg-neutral hover:text-primary w-full"
+            onClick={handleCheckout}
+          >
+            Checkout
+          </button>
+        </div>
       </div>
     </div>
   );
