@@ -2,7 +2,7 @@ import { buffer } from "raw-body";
 import Stripe from "stripe";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-  apiVersion: "2024-10-28",
+  apiVersion: "2024-09-30",
 });
 
 export const config = {
@@ -13,7 +13,6 @@ export const config = {
 
 export async function POST(req) {
   const sig = req.headers.get["stripe-signature"];
-  const rawBody = await buffer(req.body);
 
   let event;
 
