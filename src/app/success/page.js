@@ -193,7 +193,16 @@ function SuccessPageContent() {
           </div>
         </div>
       ) : (
-        <p>Loading...</p>
+        <div className="flex justify-center items-center min-h-screen">
+          <div className="space-x-2">
+            <span className="loading loading-spinner text-primary"></span>
+            <span className="loading loading-spinner text-neutral"></span>
+            <span className="loading loading-spinner text-accent"></span>
+            <span className="loading loading-spinner text-primary"></span>
+            <span className="loading loading-spinner text-neutral"></span>
+            <span className="loading loading-spinner text-accent"></span>
+          </div>
+        </div>
       )}
     </div>
   );
