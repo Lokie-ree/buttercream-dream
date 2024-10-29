@@ -20,8 +20,6 @@ function SuccessPageContent() {
   useEffect(() => {
     const fetchSessionData = async () => {
       try {
-        console.log("Session ID from URL: ", sessionId);
-
         if (!sessionId) return;
 
         // Fetch session data from Stripe
@@ -106,8 +104,9 @@ function SuccessPageContent() {
           </h1>
           <p className="text-md md:text-lg text-secondary mb-4">
             Thank you for your purchase. Your order number is{" "}
-            <strong>{sessionData.id.slice(-8)}</strong>. A receipt has been
-            emailed to <strong>{customerEmail}</strong>.
+            <strong>{sessionData.id.slice(-8)}</strong>. A receipt will be
+            emailed to <strong>{customerEmail}</strong> shortly. Please print a
+            copy of your receipt using the button below.
           </p>
 
           <div className="divider divider-primary"></div>
@@ -202,7 +201,20 @@ function SuccessPageContent() {
 
 export default function SuccessPage() {
   return (
-    <Suspense fallback={<div>Loading session data...</div>}>
+    <Suspense
+      fallback={
+        <div className="flex justify-center items-center min-h-screen">
+          <div className="space-x-2">
+            <span className="loading loading-spinner text-primary"></span>
+            <span className="loading loading-spinner text-neutral"></span>
+            <span className="loading loading-spinner text-accent"></span>
+            <span className="loading loading-spinner text-primary"></span>
+            <span className="loading loading-spinner text-neutral"></span>
+            <span className="loading loading-spinner text-accent"></span>
+          </div>
+        </div>
+      }
+    >
       <SuccessPageContent />
     </Suspense>
   );
