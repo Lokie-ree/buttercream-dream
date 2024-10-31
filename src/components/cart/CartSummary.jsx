@@ -49,11 +49,11 @@ const CartSummary = ({ cartItems, subtotal }) => {
       });
 
       const session = await response.json();
-      if (session.url) {
+      if (session.id) {
         const stripe = await loadStripe(stripePublicKey);
         await stripe.redirectToCheckout({ sessionId: session.id });
       } else {
-        alert("Failed to create creatour session. Please try again.");
+        alert("Failed to create checkout session. Please try again.");
       }
     } catch (error) {
       console.error("Error creating checkout session:", error);
