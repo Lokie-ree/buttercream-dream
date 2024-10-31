@@ -1,6 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
+import { loadStripe } from "@stripe/stripe-js";
+
+const stripePublicKey =
+  process.env.NODE_ENV === "production"
+    ? process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+    : process.env.NEXT_PUBLIC_STRIPE_TEST_PUBLISHABLE_KEY;
 
 const CartSummary = ({ cartItems, subtotal }) => {
   const [zipCode, setZipCode] = useState("");
@@ -44,9 +50,10 @@ const CartSummary = ({ cartItems, subtotal }) => {
 
       const session = await response.json();
       if (session.url) {
-        window.location.href = session.url; // Redirect to Stripe checkout
+        const stripe = await loadStripe(stripePublicKey);
+        await stripe.redirectToCheckout({ sessionId: session.id });
       } else {
-        console.error("Checkout session creation failed:", session.error);
+        alert("Failed to create creatour session. Please try again.");
       }
     } catch (error) {
       console.error("Error creating checkout session:", error);
@@ -68,7 +75,7 @@ const CartSummary = ({ cartItems, subtotal }) => {
           <input
             type="text"
             value={zipCode}
-            onChange={(e) => setZipCode(e.target.value)}
+            onChange={(e) => setZipCode(e.target.value.trim())}
             className="input input-accent w-full mt-2 mb-2"
             placeholder="Enter Zip Code"
           />
