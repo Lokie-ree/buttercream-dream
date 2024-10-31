@@ -1,17 +1,12 @@
 import Stripe from "stripe";
 import { NextResponse } from "next/server";
 
-const stripe = new Stripe(
-  process.env.NODE_ENV === "production"
-    ? process.env.STRIPE_SECRET_KEY
-    : process.env.STRIPE_TEST_SECRET_KEY
-);
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export async function POST(req) {
   try {
     const { items } = await req.json();
 
-    // Transform cart items into Stripe's line items format
     const lineItems = items.map((item) => ({
       price_data: {
         currency: "usd",
@@ -40,7 +35,6 @@ export async function POST(req) {
     return NextResponse.json({ id: session.id });
   } catch (error) {
     console.error("Error creating checkout session:", error.message);
-
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }

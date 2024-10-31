@@ -3,11 +3,6 @@
 import React, { useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 
-const stripePublicKey =
-  process.env.NODE_ENV === "production"
-    ? process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
-    : process.env.NEXT_PUBLIC_STRIPE_TEST_PUBLISHABLE_KEY;
-
 const CartSummary = ({ cartItems, subtotal }) => {
   const [zipCode, setZipCode] = useState("");
   const isCartEmpty = subtotal === 0;
@@ -50,7 +45,9 @@ const CartSummary = ({ cartItems, subtotal }) => {
 
       const session = await response.json();
       if (session.id) {
-        const stripe = await loadStripe(stripePublicKey);
+        const stripe = await loadStripe(
+          process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+        );
         await stripe.redirectToCheckout({ sessionId: session.id });
       } else {
         alert("Failed to create checkout session. Please try again.");
