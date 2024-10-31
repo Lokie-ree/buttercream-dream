@@ -18,9 +18,7 @@ const CartSummary = ({ cartItems, subtotal }) => {
   ];
 
   const handleCheckout = async () => {
-    if (isCartEmpty) {
-      return;
-    }
+    if (isCartEmpty) return;
 
     // Check if the entered zip code is in the allowed list
     if (!allowedZipCodes.includes(zipCode)) {
@@ -43,8 +41,16 @@ const CartSummary = ({ cartItems, subtotal }) => {
         }),
       });
 
+      // Log the response for debugging
+      console.log("API response:", response);
       const session = await response.json();
+      console.log("Session data:", session);
+
       if (session.id) {
+        console.log(
+          "Publishable Key:",
+          process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+        ); // Log publishable key
         const stripe = await loadStripe(
           process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
         );

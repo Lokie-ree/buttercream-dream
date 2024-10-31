@@ -31,6 +31,7 @@ export async function POST(req) {
       },
       billing_address_collection: "auto",
     });
+    console.log("Created checkout session:", session); // Log session for debugging
 
     return NextResponse.json({ id: session.id });
   } catch (error) {

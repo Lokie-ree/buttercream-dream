@@ -15,7 +15,6 @@
     "@sanity/image-url": "^1.0.2",
     "@sanity/ui": "^2.8.9",
     "@sanity/vision": "^3.59.1",
-    "@sendgrid/mail": "^8.1.4",
     "@stripe/stripe-js": "^4.9.0",
     "canvas-confetti": "^1.9.3",
     "next": "^15.0.0",
