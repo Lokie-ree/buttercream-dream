@@ -20,23 +20,29 @@ function SuccessPageContent() {
   useEffect(() => {
     const fetchSessionData = async () => {
       try {
-        if (!sessionId) return;
+        if (!sessionId) {
+          console.error("No session ID found.");
+          return;
+        }
 
-        // Fetch session data from Stripe
+        console.log("Fetching session data for session ID:", sessionId);
+
+        // Fetch session data from the API
         const response = await fetch(
           `${process.env.NEXT_PUBLIC_DOMAIN}/api/get-checkout-session?session_id=${sessionId}`
         );
 
         if (!response.ok) {
-          throw new Error("Failed to fetch session data");
+          throw new Error(
+            `Failed to fetch session data. Status: ${response.status}`
+          );
         }
 
         const data = await response.json();
+        console.log("Fetched session data:", data);
         setSessionData(data);
-        console.log("Session data: ", data);
       } catch (error) {
-        console.error("Error fetching session data: ", error.message);
-        console.log(error);
+        console.error("Error fetching session data:", error.message);
       }
     };
 

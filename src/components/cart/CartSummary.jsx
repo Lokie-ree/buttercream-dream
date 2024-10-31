@@ -20,13 +20,14 @@ const CartSummary = ({ cartItems, subtotal }) => {
   const handleCheckout = async () => {
     if (isCartEmpty) return;
 
-    // Check if the entered zip code is in the allowed list
     if (!allowedZipCodes.includes(zipCode)) {
       alert("Sorry, we only offer local delivery to specific zip codes");
       return;
     }
 
     try {
+      console.log("Initiating checkout process...");
+
       const response = await fetch("/api/create-checkout-session", {
         method: "POST",
         headers: {
@@ -41,25 +42,29 @@ const CartSummary = ({ cartItems, subtotal }) => {
         }),
       });
 
-      // Log the response for debugging
-      console.log("API response:", response);
       const session = await response.json();
-      console.log("Session data:", session);
+      console.log("Session data:", session); // Log session data
 
       if (session.id) {
-        console.log(
-          "Publishable Key:",
-          process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
-        ); // Log publishable key
+        console.log("Loading Stripe with publishable key..."); // Check key availability
         const stripe = await loadStripe(
           process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
         );
+
+        if (!stripe) {
+          console.error("Failed to load Stripe. Check publishable key.");
+          alert("Unable to initialize Stripe. Please try again.");
+          return;
+        }
+
+        console.log("Redirecting to Stripe Checkout...");
         await stripe.redirectToCheckout({ sessionId: session.id });
       } else {
+        console.error("Failed to retrieve session ID from response.");
         alert("Failed to create checkout session. Please try again.");
       }
     } catch (error) {
-      console.error("Error creating checkout session:", error);
+      console.error("Error in handleCheckout:", error);
     }
   };
 
