@@ -42,8 +42,9 @@ const CartSummary = ({ cartItems, subtotal }) => {
         }),
       });
 
+      console.log("API response:", response); // Log raw API response
       const session = await response.json();
-      console.log("Session data:", session); // Log session data
+      console.log("Session data received from API:", session); // Log parsed session data
 
       if (session.id) {
         console.log("Loading Stripe with publishable key..."); // Check key availability
@@ -59,9 +60,12 @@ const CartSummary = ({ cartItems, subtotal }) => {
 
         console.log("Redirecting to Stripe Checkout...");
         await stripe.redirectToCheckout({ sessionId: session.id });
+      } else if (session.error) {
+        console.error("Error in API response:", session.error);
+        alert(`Failed to create checkout session: ${session.error}`);
       } else {
-        console.error("Failed to retrieve session ID from response.");
-        alert("Failed to create checkout session. Please try again.");
+        console.error("Unknown response from API:", session);
+        alert("Failed to create checkout session due to an unknown error.");
       }
     } catch (error) {
       console.error("Error in handleCheckout:", error);
@@ -71,7 +75,7 @@ const CartSummary = ({ cartItems, subtotal }) => {
   return (
     <div className="card card-compact bg-base-100 w-full max-w-xl shadow-xl p-2 mt-4">
       <div className="card-body">
-        <h2 className=" card-title text-lg md:text-2xl font-bold text-primary">
+        <h2 className="card-title text-lg md:text-2xl font-bold text-primary">
           Cart Summary
         </h2>
         <p className="text-sm md:text-lg font-semibold text-secondary">
