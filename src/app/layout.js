@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
         />
         <meta
           property="og:image"
-          content="https://buttercream-dream.vercel.app/brand_logo_600x600.jpg"
+          content="https://buttercream-dream.vercel.app/brandlogo_1200x1200.png"
         />
         <meta
           property="og:url"
